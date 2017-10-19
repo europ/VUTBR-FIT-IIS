@@ -8,6 +8,7 @@
 	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 		<thead>
 			<tr>
+				<th>ID</th>
 				<th>Name</th>
 				<th>Email</th>
 				<th>Created at</th>
@@ -17,6 +18,7 @@
 		</thead>
 		<tfoot>
 			<tr>
+				<th>ID</th>
 				<th>Name</th>
 				<th>Email</th>
 				<th>Created at</th>
@@ -27,11 +29,16 @@
 		<tbody>
 			@foreach($users as $user)
 			<tr>
+				<td>{{ $user->id }}</td>
 				<td>{{ $user->name }}</td>
 				<td>{{ $user->email }}</td>
 				<td>{{ $user->created_at }}</td>
 				<td>{{ $user->updated_at }}</td>
-				<td>X|X|X</td>
+				<td class="text-center">
+					<a href="{{route('user-edit', $user->id)}}">
+						<span class="pficon-edit"></span>
+					</a>
+				</td>
 			</tr>
 			@endforeach
 		</tbody>
@@ -55,6 +62,7 @@
    $(document).ready( function() {
    	$('#example').dataTable( {
    		"aoColumns": [ 
+   		null,
    		null,
    		null,
    		null,

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use DB;
 use App\User;
+
+
 
 class UserController extends Controller
 {
@@ -47,6 +51,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        // TODO - ak taky user neexistuje, sprav nieco
         $user = User::find($id);
         return $user;
         // return view('')
@@ -60,7 +65,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('users.edit-user')->with('user', User::find($id));
     }
 
     /**
@@ -72,7 +77,39 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $rules = [
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($user->id),
+            ],
+           'name' => 'required|max:255',
+        ];
+
+        if (!empty($request->input('password'))) {
+            $rules['password'] = 'min:6|confirmed';
+        }
+
+        $this->validate($request, $rules);
+
+       //  $this->validate($request, [
+       //     'email' => 'required|email|max:255|unique:users,email,'.User::find($id)->email,
+       //     'password' => 'min:6|confirmed'
+       // ]);
+
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->email    = $request->input('email');
+        if (!empty($request->input('password'))) {
+            $user->password = bcrypt($request->input('password'));
+        }
+        $user->admin = $request->input('is_admin') ? 1 : 0;
+        $user->save();
+
+        return redirect('/');
+
     }
 
     /**
