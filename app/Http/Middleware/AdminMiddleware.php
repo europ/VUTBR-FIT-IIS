@@ -22,7 +22,7 @@ class AdminMiddleware
             }
         }
 
-        return redirect()->guest('/');
+        return redirect()->guest('login');
 
     }
 }

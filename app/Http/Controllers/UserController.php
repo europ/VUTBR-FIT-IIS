@@ -11,6 +11,15 @@ use App\User;
 
 class UserController extends Controller
 {
+    
+
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -85,7 +94,7 @@ class UserController extends Controller
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
-           'name' => 'required|max:255',
+            'name' => 'required|max:255',
         ];
 
         if (!empty($request->input('password'))) {
@@ -112,14 +121,25 @@ class UserController extends Controller
 
     }
 
+    public function confirmDelete($id)
+    {
+        $user = User::find($id);
+        return view('users.confirm-delete')->with('user', $user);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $email = User::find($id);
+        if (User::destroy($id)) {
+            $request->session()->flash('status', "User $email->email was successfully deleted");
+        }
+        
+        return view('users.list-users')->with('users', User::get());
     }
 }
