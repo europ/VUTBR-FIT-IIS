@@ -55,6 +55,31 @@ git stash pop # load your saved changes back
 ---
 
 
+### FIX:
+* Change `DocumentRoot` in `/etc/apache2/sites-available/000-default.conf` to:
+```
+DocumentRoot /var/www/html/IIS/public
+```
+
+* Add to `/etc/apache2/sites-available/000-default.conf`:
+```
+	<Directory /var/www/html/IIS/public>
+		Options Indexes FollowSymLinks
+		AllowOverride All
+		Require all granted
+	</Directory>
+```
+
+
+* Run this command in terminal:
+```
+service apache2 reload
+```
+
+
+---
+
+
 ### How to:
 * [README LaraFly](https://github.com/europ/VUTBR-FIT-IIS/blob/master/README-LaraFly.md)
 * [README Backup](https://github.com/europ/VUTBR-FIT-IIS/blob/master/backup/README-backup.md)
