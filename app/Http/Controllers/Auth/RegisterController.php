@@ -39,6 +39,16 @@ class RegisterController extends Controller
         $this->middleware('admin');
     }
 
+     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return view('auth.register')->with('pobocky', \App\Pobocka::get());
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -67,6 +77,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'id_pobocky' => $data['pobocka']/* == "none" ? NULL : $data['pobocka']*/,
             'admin' => $is_admin
         ]);
     }

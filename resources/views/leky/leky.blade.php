@@ -5,12 +5,12 @@
 	<div class="row">
 		<div class="col-md-9">
 			<h1>
-				Users
+				Léky
 			</h1>
 		</div>
 		<div class="col-md-3 text-right">
 			<a href="{{route('register')}}" class="btn btn-primary" style="margin-top: 20px;">
-				<span class="pficon-add-circle-o"></span> Add user
+				<span class="pficon-add-circle-o"></span> Přidat lék
 			</a>
 		</div>
 	</div>
@@ -26,42 +26,30 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Admin</th>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Pobočka</th>
-				<th>Created at</th>
-				<th>Updated at</th>
+				<th>Název léku</th>
+				<th>Cena</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
 		<tfoot>
 			<tr>
 				<th>ID</th>
-				<th>Admin</th>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Pobočka</th>
-				<th>Created at</th>
-				<th>Updated at</th>
+				<th>Název léku</th>
+				<th>Cena</th>
 				<th>Actions</th>
 			</tr>
 		</tfoot>
 		<tbody>
-			@foreach($users as $user)
+			@foreach($leky as $lek)
 			<tr>
-				<td>{{ $user->id }}</td>
-				<td>{{ $user->admin }}</td>
-				<td>{{ $user->name }}</td>
-				<td>{{ $user->email }}</td>
-				<td>{{ $user->pobocka == NULL ? "-" : $user->pobocka->adresa_ulice}}</td>
-				<td>{{ $user->created_at }}</td>
-				<td>{{ $user->updated_at }}</td>
+				<td>{{ $lek->id_leku }}</td>
+				<td>{{ $lek->nazev }}</td>
+				<td>{{ $lek->cena }}</td>
 				<td class="text-center">
-					<a href="{{route('user-edit', $user->id)}}" class="btn btn-primary">
+					<a href="{{-- {{route('user-edit', $user->id)}} --}}" class="btn btn-primary">
 						<span class="pficon-edit"></span>					
 					</a>
-					<a href="{{route('users.confirmDelete', $user->id)}}" class="btn btn-primary">
+					<a href="{{-- {{route('users.confirmDelete', $user->id)}} --}}" class="btn btn-primary">
 						<span class="pficon-delete"></span>
 					</a>
 				</td>
@@ -88,9 +76,6 @@
    $(document).ready( function() {
    	$('#example').dataTable( {
    		"aoColumns": [ 
-   		null,
-   		null,
-   		null,
    		null,
    		null,
    		null,

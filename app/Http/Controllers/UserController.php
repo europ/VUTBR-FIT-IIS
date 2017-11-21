@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use DB;
 use App\User;
+use App\Pobocka;
 
 
 
@@ -74,7 +75,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('users.edit-user')->with('user', User::find($id));
+        return view('users.edit-user')->with('user', User::find($id))->with('pobocky', Pobocka::get());
     }
 
     /**
@@ -113,6 +114,11 @@ class UserController extends Controller
         $user->email    = $request->input('email');
         if (!empty($request->input('password'))) {
             $user->password = bcrypt($request->input('password'));
+        }
+        if ($request->input('pobocka') != "none") {
+            $user->id_pobocky = $request->input('pobocka');
+        } else {
+            $user->id_pobocky = NULL;
         }
         $user->admin = $request->input('is_admin') ? 1 : 0;
         $user->save();

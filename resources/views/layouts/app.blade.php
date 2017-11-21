@@ -98,20 +98,19 @@
     <div class="nav-pf-vertical nav-pf-vertical-with-sub-menus">
 
         <ul class="list-group">
-            <li class="list-group-item active">
-                <a>
-                    <span class="fa fa-dashboard" data-toggle="tooltip" title="Dashboard"></span>
-                    <span class="list-group-item-value">Dashboard</span>
+            <li class="list-group-item{{ $current_route_name == "users" ? " active" : ""}}">
+                <a href="{{ route('users') }}">
+                    <span class="fa fa-users" data-toggle="tooltip" title="Uživatelé"></span>
+                    <span class="list-group-item-value">Uživatelé</span>
                 </a>
             </li>
-            <li class="list-group-item">
-                <a>
-                    <span class="fa fa-shield" data-toggle="tooltip" title="Dolor"></span>
-                    <span class="list-group-item-value">Dolor</span>
-
+            <li class="list-group-item{{ $current_route_name == "pobocky" ? " active" : ""}}">
+                <a href="{{ route('pobocky') }}">
+                    <span class="fa fa-hospital-o" data-toggle="tooltip" title="Pobočky"></span>
+                    <span class="list-group-item-value">Pobočky</span>
                 </a>
             </li>
-            <li class="list-group-item secondary-nav-item-pf" data-target="#ipsum-secondary">
+            {{--<li class="list-group-item secondary-nav-item-pf" data-target="#ipsum-secondary">
                 <a>
                     <span class="fa fa-space-shuttle" data-toggle="tooltip" title="Ipsum"></span>
                     <span class="list-group-item-value">Ipsum</span>
@@ -181,7 +180,7 @@
                     <span class="fa fa-gamepad" data-toggle="tooltip" title="Lorem"></span>
                     <span class="list-group-item-value">Lorem</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
     <div class="container-fluid container-cards-pf container-pf-nav-pf-vertical" id="app">
