@@ -38,6 +38,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="pobocka" class="col-md-4 control-label">Pobočka</label>
+                            <div class="col-md-6">
+                                <select name="pobocka" id="">
+                                    <option value="none">Žádná</option>
+                                    @foreach ($pobocky as $pobocka)
+                                    <option value="{{ $pobocka->id_pobocky }}">{{$pobocka->adresa_mesto . ", " . $pobocka->adresa_ulice . " " . $pobocka->adresa_cislo . ", " . $pobocka->adresa_psc}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

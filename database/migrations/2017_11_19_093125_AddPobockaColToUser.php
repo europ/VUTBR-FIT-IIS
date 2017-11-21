@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ExtendingUsersTable extends Migration
+class AddPobockaColToUser extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class ExtendingUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('admin')->default(0);
+            $table->integer('id_pobocky')->unsigned()->nullable();
+            $table->foreign('id_pobocky')->references('id_pobocky')->on('pobocky');
         });
     }
 
@@ -23,10 +24,8 @@ class ExtendingUsersTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('admin');
-        });
+    public function down() {
+        $table->dropForeign('id_pobocky_foreign');
+        $table->dropColumn('id_pobocky');
     }
 }

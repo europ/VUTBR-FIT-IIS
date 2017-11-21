@@ -17,7 +17,10 @@ Route::get('/', 'UserController@index');
 //     return view('patternfly.'.$pattern.'.'.$example);
 // });
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/pobocky', 'PobockyController@index')->name('pobocky');
+Route::get('/leky', 'LekyController@index')->name('leky');
+Route::get('/leky/{id}', 'LekyController@show')->name('leky');
 
 Auth::routes();
 
