@@ -21,8 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pobocky', 'PobockyController@index')->name('pobocky');
 Route::get('/leky', 'LekyController@index')->name('leky');
 Route::get('/leky/{id}', 'LekyController@show')->name('leky');
+Route::get('/poistovny','PoistovnyController@index')->name('poistovny');
+
 
 Auth::routes();
+
 
 Route::get('/users', 'UserController@index')->name('users');
 Route::get('/user/{id}', 'UserController@show');
