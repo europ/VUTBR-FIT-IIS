@@ -46,7 +46,7 @@
 		<tbody>
 			@foreach($dodavatele as $dodavatel)
 			<tr>
-				<td>{{ $dodavatel->id_dodavatel }}</td>
+				<td>{{ $dodavatel->id_dodavatele }}</td>
 				<td>{{ $dodavatel->nazev }}</td>
 				<td>{{ $dodavatel->typ }}</td>
 				<td>{{ $dodavatel->datum_dodani }}</td>
