@@ -24,8 +24,9 @@ Route::get('/leky', 'LekyController@index')->name('leky');
 Route::get('/leky/{id}', 'LekyController@show')->name('ukazlek');
 Route::get('/poistovny','PoistovnyController@index')->name('poistovny');
 Route::resource('pobocky', 'PobockyController');
+Route::resource('dodavatele', 'DodavateliaController');
 Route::get('/pobocky/{id}/confirm-delete', 'PobockyController@confirmDelete')->name('pobocky.confirmDelete');
-Route::get('/dodavatele', 'DodavateliaController@index')->name('dodavatele');
+// Route::get('/dodavatele', 'DodavateliaController@index')->name('dodavatele');
 
 
 Auth::routes();
