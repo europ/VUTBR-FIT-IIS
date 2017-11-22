@@ -139,9 +139,6 @@ class DodavateliaController extends Controller
         //tieto veci som este nasiel a som skusal este v podmienke ale nejak neslo
         //Input::has('jednorazovy');
         //Request::input('jednorazovy') === true
-
-
-
         if($request->input('jednorazovy')){//rules1
             $this->validate($request, $rules1);
         }
