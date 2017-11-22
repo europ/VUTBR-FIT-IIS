@@ -49,7 +49,11 @@ class PobockyController extends Controller
             'adresa_ulice' => 'required|max:255',
             'adresa_mesto' => 'required|max:255',
             'adresa_cislo' => 'required|max:255',
-            'adresa_psc' => 'required|max:255'
+            'adresa_psc' => array(
+                'required',
+                'max:255',
+                'regex:/^[0-9]+[ ]?[0-9]+$/'
+            )
         ];
 
         $this->validate($request, $rules);
@@ -61,7 +65,11 @@ class PobockyController extends Controller
         $pobocka->adresa_ulice = $request->input('adresa_ulice');
         $pobocka->adresa_mesto = $request->input('adresa_mesto');
         $pobocka->adresa_cislo = $request->input('adresa_cislo');
-        $pobocka->adresa_psc = $request->input('adresa_psc');
+        //$pobocka->adresa_psc = $request->input('adresa_psc');
+
+        $tmp = $request->input('adresa_psc');
+        $tmp = str_replace(' ','',$tmp);
+        $pobocka->adresa_psc = $tmp;
 
         if ($pobocka->save()) {
             $request->session()->flash('status-success', "Pobočka <b>$pobocka->nazev_pobocky</b> byla úspěšně vytvořena.");
@@ -109,7 +117,11 @@ class PobockyController extends Controller
             'adresa_ulice' => 'required|max:255',
             'adresa_mesto' => 'required|max:255',
             'adresa_cislo' => 'required|max:255',
-            'adresa_psc' => 'required|max:255'
+            'adresa_psc' => array(
+                'required',
+                'max:255',
+                'regex:/^[0-9]+[ ]?[0-9]+$/'
+            )
         ];
 
         $this->validate($request, $rules);
@@ -121,7 +133,13 @@ class PobockyController extends Controller
         $pobocka->adresa_ulice = $request->input('adresa_ulice');
         $pobocka->adresa_mesto = $request->input('adresa_mesto');
         $pobocka->adresa_cislo = $request->input('adresa_cislo');
-        $pobocka->adresa_psc = $request->input('adresa_psc');
+        
+
+        $tmp = $request->input('adresa_psc');
+        $tmp = str_replace(' ','',$tmp);
+        $pobocka->adresa_psc = $tmp;
+
+
 
         if ($pobocka->save()) {
             $request->session()->flash('status-success', "Pobočka <b>$pobocka->nazev_pobocky</b> byla úspěšně upravena.");
