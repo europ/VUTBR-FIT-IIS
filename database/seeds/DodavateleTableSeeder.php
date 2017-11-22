@@ -12,20 +12,12 @@ class DodavateleTableSeeder extends Seeder
     public function run()
     {
     	DB::table('dodavatele')->insert(array(
-            array('nazev' => 'Asd', 'typ' => 0, 'datum_dodani' => '2000-01-01', 'platnost_smlouvy_od' => '2010-01-01', 'platnost_smlouvy_do' => '2020-01-01'),
-            array('nazev' => 'AAA', 'typ' => 1, 'datum_dodani' => '2000-01-01', 'platnost_smlouvy_od' => '2010-01-01', 'platnost_smlouvy_do' => '2020-01-01'),
-            array('nazev' => 'BBB', 'typ' => 0, 'datum_dodani' => '2000-01-01', 'platnost_smlouvy_od' => '2010-01-01', 'platnost_smlouvy_do' => '2020-01-01'),
-            array('nazev' => 'CCC', 'typ' => 1, 'datum_dodani' => '2000-01-01', 'platnost_smlouvy_od' => '2010-01-01', 'platnost_smlouvy_do' => '2020-01-01'),
-            array('nazev' => 'XXX', 'typ' => 0, 'datum_dodani' => '2000-01-01', 'platnost_smlouvy_od' => '2010-01-01', 'platnost_smlouvy_do' => '2020-01-01'),
-
-        /*
-        // FIX THIS please
             array(
                   'nazev'               => 'Barnys',
                   'typ'                 => 1,
                   'datum_dodani'        => '2006-06-15',
                   'platnost_smlouvy_od' => NULL,
-                  'platnost_smlouvy_do' => NULL
+                  'platnost_smlouvy_do' => NULL,
                  ),
             array(
                   'nazev'               => 'Schwabe Czech Republic, s.r.o.',
@@ -121,7 +113,7 @@ class DodavateleTableSeeder extends Seeder
             array(
                   'nazev'               => 'EXBIO Praha, a.s.',
                   'typ'                 => 1,
-                  'datum_dodani'        => '2015-09-19'
+                  'datum_dodani'        => '2015-09-19',
                   'platnost_smlouvy_od' => NULL,
                   'platnost_smlouvy_do' => NULL,
                  ),
@@ -139,7 +131,6 @@ class DodavateleTableSeeder extends Seeder
                   'platnost_smlouvy_od' => NULL,
                   'platnost_smlouvy_do' => NULL,
                  ),
-            */
         ));
     }
 }
