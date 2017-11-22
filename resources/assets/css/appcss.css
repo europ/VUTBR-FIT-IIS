@@ -2,3 +2,8 @@
     /*background:black;*/
     /*color:white;*/
 }
+
+
+.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top {
+	z-index: 9999999 !important;
+}
