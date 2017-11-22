@@ -12,16 +12,16 @@
 * Set up repo :white_check_mark:
 * Set up [Gitter](https://gitter.im/) :negative_squared_cross_mark:
     * Use [Facebook](https://www.facebook.com/) :white_check_mark:
-* Implement database :x:
-	* selects :x:
-	* tables :x:
-		* create :x:
-		* drop :x:
-* Choose frontend template :x:
+* Implement database :white_check_mark:
+	* selects :white_check_mark:
+	* tables :white_check_mark:
+		* create :white_check_mark:
+		* drop :white_check_mark:
+* Choose frontend template :white_check_mark:
 * Implement authorization to information system (admin/pharmacist) :white_check_mark:
 * Implement types of views :x:
-	* medicines :x:
-	* employees :x:
+	* medicines :white_check_mark:
+	* employees :white_check_mark:
 	* distributors :x:
 	* offices :x:
 	* insurances :x:
