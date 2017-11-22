@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dodavatel;
+use Illuminate\Support\Facades\Input;
 
 
 class DodavateliaController extends Controller
@@ -44,11 +45,30 @@ class DodavateliaController extends Controller
     {
         $dodavatel = new Dodavatel;
 
-        $rules = [
+        $rules1 = [
             'nazev' => 'required|max:255',
+            'datum_dodani' => 'date_format:"Y-m-d"|required'
             // TODO
         ];
-        $this->validate($request, $rules);
+        
+        $rules2 = [
+            'nazev' => 'required|max:255',
+            'platnost_smlouvy_od' => '|required|date_format:"Y-m-d"',
+            'platnost_smlouvy_do' => 'required|date_format:"Y-m-d"'
+            // TODO
+        ];
+
+        //$this->validate($request, $rules);
+
+
+        
+        if($request->input('jednorazovy')){//rules1
+            $this->validate($request, $rules1);
+        }
+        else{//rules2 ak trvaly
+            $this->validate($request, $rules2);
+        }  
+
 
         $dodavatel->nazev = $request->input('nazev');
         $dodavatel->typ = $request->input('jednorazovy') ? 1 : 0;
@@ -100,20 +120,41 @@ class DodavateliaController extends Controller
     {
         $dodavatel = Dodavatel::find($id);
 
-        $rules = [
+        $rules1 = [
             'nazev' => 'required|max:255',
+            'datum_dodani' => 'date_format:"Y-m-d"|required'
             // TODO
         ];
-        $this->validate($request, $rules);
+        
+        $rules2 = [
+            'nazev' => 'required|max:255',
+            'platnost_smlouvy_od' => '|required|date_format:"Y-m-d"',
+            'platnost_smlouvy_do' => 'required|date_format:"Y-m-d"'
+            // TODO
+        ];
+        //$this->validate($request, $rules);
+
+
+
+        //tieto veci som este nasiel a som skusal este v podmienke ale nejak neslo
+        //Input::has('jednorazovy');
+        //Request::input('jednorazovy') === true
+
+
+
+        if($request->input('jednorazovy')){//rules1
+            $this->validate($request, $rules1);
+        }
+        else{//rules2 ak trvaly
+            $this->validate($request, $rules2);
+        }  
+
 
         $dodavatel->nazev = $request->input('nazev');
         $dodavatel->typ = $request->input('jednorazovy') ? 1 : 0;
         if ($dodavatel->typ) {
             $dodavatel->datum_dodani = $request->input('datum_dodani');
-            $dodavatel->platnost_smlouvy_od = NULL;
-            $dodavatel->platnost_smlouvy_do = NULL;
         } else {
-            $dodavatel->datum_dodani = NULL;
             $dodavatel->platnost_smlouvy_od = $request->input('platnost_smlouvy_od');
             $dodavatel->platnost_smlouvy_do = $request->input('platnost_smlouvy_do');
         }
