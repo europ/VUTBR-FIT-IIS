@@ -14,7 +14,7 @@ class PoistovnyController extends Controller
     public function index()
     {
         $poistovny = \App\Poistovna::get();
-        return view('poistovny.poistovny')->with('pojistovny', $poistovny);
+        return view('poistovny.poistovny')->with('poistovny', $poistovny);
     }
 
         /**

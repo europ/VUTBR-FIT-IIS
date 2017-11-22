@@ -20,7 +20,7 @@ class LekyController extends Controller
     public function lekyNaPobocce() {
         $userPobockaId = \Auth::user()->id_pobocky;
         $leky = \App\Pobocka::find($userPobockaId)->leky;
-        return $leky;
+        return view('leky.leky-na-pobocce')->with('leky',$leky);
     }
 
     /**
