@@ -10,6 +10,7 @@ class PobockyController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('admin')->except(['index', 'show']);
         $this->middleware('auth');
     }
 
@@ -30,7 +31,7 @@ class PobockyController extends Controller
      */
     public function create()
     {
-        //
+        return view('pobocky.create');
     }
 
     /**
@@ -41,7 +42,34 @@ class PobockyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pobocka = new Pobocka;
+
+        $rules = [
+            'nazev_pobocky' => 'required|max:255',
+            'adresa_ulice' => 'required|max:255',
+            'adresa_mesto' => 'required|max:255',
+            'adresa_cislo' => 'required|max:255',
+            'adresa_psc' => 'required|max:255'
+        ];
+
+        $this->validate($request, $rules);
+
+        // TODO - mohli by sme validovat, ake PSC zadal uzivatel,
+        // zobrat aj "900 42", teraz to berie len integer
+
+        $pobocka->nazev_pobocky = $request->input('nazev_pobocky');
+        $pobocka->adresa_ulice = $request->input('adresa_ulice');
+        $pobocka->adresa_mesto = $request->input('adresa_mesto');
+        $pobocka->adresa_cislo = $request->input('adresa_cislo');
+        $pobocka->adresa_psc = $request->input('adresa_psc');
+
+        if ($pobocka->save()) {
+            $request->session()->flash('status-success', "Pobočka <b>$pobocka->nazev_pobocky</b> byla úspěšně vytvořena.");
+        } else {
+            $request->session()->flash('status-fail', "Pobočku <b>$pobocka->nazev_pobocky</b> se nezdařilo vytvořit.");
+        }
+
+        return redirect()->route('pobocky.index');
     }
 
     /**
@@ -52,7 +80,7 @@ class PobockyController extends Controller
      */
     public function show($id)
     {
-        //
+        return count(\App\Pobocka::find($id)->leky);
     }
 
     /**

@@ -9,14 +9,16 @@
 			</h1>
 		</div>
 		<div class="col-md-3 text-right">
-			<a href="{{route('register')}}" class="btn btn-primary" style="margin-top: 20px;">
+			@if (\Auth::user()->isAdmin())
+			<a href="{{route('pobocky.create')}}" class="btn btn-primary" style="margin-top: 20px;">
 				<span class="pficon-add-circle-o"></span> Přidat pobočku
 			</a>
+			@endif
 		</div>
 	</div>
 
-    @include('alerts.status')
-
+	@include('alerts.status')
+	
 	<!-- Table HTML -->
 	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 		<thead>
@@ -42,12 +44,14 @@
 				<td>{{ $pobocka->nazev_pobocky }}</td>
 				<td>{{ $pobocka->adresa_ulice . " " . $pobocka->adresa_cislo . ", " . $pobocka->adresa_psc . " " . $pobocka->adresa_mesto }}</td>
 				<td class="text-center">
+					@if (\Auth::user()->isAdmin())
 					<a href="{{route('pobocky.edit', $pobocka->id_pobocky)}}" class="btn btn-primary">
 						<span class="pficon-edit"></span>					
 					</a>
 					<a href="{{route('pobocky.confirmDelete', $pobocka->id_pobocky)}}" class="btn btn-primary">
 						<span class="pficon-delete"></span>
 					</a>
+					@endif
 				</td>
 			</tr>
 			@endforeach
