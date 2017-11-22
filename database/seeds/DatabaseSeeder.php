@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         // $this->call('LekyTableSeeder');
         // $this->call('PobockyTableSeeder');
         // $this->call('PobockyLekyTableSeeder');
-        $this->call('PoistovnyTableSeeder');
+        // $this->call('PoistovnyTableSeeder');
+        $this->call('DodavateleTableSeeder');
     }
 }

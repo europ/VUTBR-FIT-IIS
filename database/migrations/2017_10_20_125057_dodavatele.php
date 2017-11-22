@@ -17,9 +17,9 @@ class Dodavatele extends Migration
             $table->increments('id_dodavatele');
             $table->string('nazev');
             $table->integer('typ');
-            $table->date('datum_dodani');
-            $table->date('platnost_smlouvy_od');
-            $table->date('platnost_smlouvy_do');
+            $table->date('datum_dodani')->nullable();
+            $table->date('platnost_smlouvy_od')->nullable();
+            $table->date('platnost_smlouvy_do')->nullable();
         });
     }
 
