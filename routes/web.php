@@ -18,10 +18,13 @@ Route::get('/', 'UserController@index');
 // });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/pobocky', 'PobockyController@index')->name('pobocky');
+Route::get('/leky-na-pobocce', 'LekyController@lekyNaPobocce')->name('home');
+// Route::get('/pobocky', 'PobockyController@index')->name('pobocky');
 Route::get('/leky', 'LekyController@index')->name('leky');
-Route::get('/leky/{id}', 'LekyController@show')->name('leky');
+Route::get('/leky/{id}', 'LekyController@show')->name('ukazlek');
 Route::get('/poistovny','PoistovnyController@index')->name('poistovny');
+Route::resource('pobocky', 'PobockyController');
+Route::get('/pobocky/{id}/confirm-delete', 'PobockyController@confirmDelete')->name('pobocky.confirmDelete');
 
 
 Auth::routes();

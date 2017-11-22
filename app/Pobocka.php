@@ -13,13 +13,15 @@ class Pobocka extends Model
      */
     protected $table = 'pobocky';
     protected $primaryKey = 'id_pobocky';
-
+    protected $fillable = [
+        'adresa_ulice', 'adresa_mesto', 'adresa_cislo', 'adresa_psc'
+    ];
 
     /**
      * Get the phone record associated with the user.
      */
     public function leky() {
-        return $this->belongsToMany('App\Liek', 'leky_na_pobockach', 'id_leku', 'id_pobocky');
+        return $this->belongsToMany('App\Liek', 'leky_na_pobockach', 'id_pobocky', 'id_leku');
     }
 
     public function zamestnanci() {

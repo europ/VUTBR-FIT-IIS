@@ -17,6 +17,12 @@ class LekyController extends Controller
         return view('leky.leky')->with('leky', $leky);
     }
 
+    public function lekyNaPobocce() {
+        $userPobockaId = \Auth::user()->id_pobocky;
+        $leky = \App\Pobocka::find($userPobockaId)->leky;
+        return $leky;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

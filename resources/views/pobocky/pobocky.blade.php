@@ -14,12 +14,8 @@
 			</a>
 		</div>
 	</div>
-	@if (Session::has('status'))
-	<div class="alert alert-success" role="alert">
-		<span class="pficon pficon-error-circle-o"></span>
-		{{Session::get('status')}}
-	</div>
-	@endif
+
+    @include('alerts.status')
 
 	<!-- Table HTML -->
 	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -40,17 +36,16 @@
 			</tr>
 		</tfoot>
 		<tbody>
-			<a href="{{route('users')}}">XXXXXXXXXXXXXXXX</a>
 			@foreach($pobocky as $pobocka)
 			<tr>
 				<td>{{ $pobocka->id_pobocky }}</td>
 				<td>{{ $pobocka->nazev_pobocky }}</td>
 				<td>{{ $pobocka->adresa_ulice . " " . $pobocka->adresa_cislo . ", " . $pobocka->adresa_psc . " " . $pobocka->adresa_mesto }}</td>
 				<td class="text-center">
-					<a href="{{-- {{route('user-edit', $user->id)}} --}}" class="btn btn-primary">
+					<a href="{{route('pobocky.edit', $pobocka->id_pobocky)}}" class="btn btn-primary">
 						<span class="pficon-edit"></span>					
 					</a>
-					<a href="{{-- {{route('users.confirmDelete', $user->id)}} --}}" class="btn btn-primary">
+					<a href="{{route('pobocky.confirmDelete', $pobocka->id_pobocky)}}" class="btn btn-primary">
 						<span class="pficon-delete"></span>
 					</a>
 				</td>

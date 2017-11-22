@@ -11,9 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call('LekyTableSeeder');
-        $this->call('PobockyTableSeeder');
-        $this->call('PobockyLekyTableSeeder');
+        // $this->call('LekyTableSeeder');
+        // $this->call('PobockyTableSeeder');
+        // $this->call('PobockyLekyTableSeeder');
         $this->call('PoistovnyTableSeeder');
     }
 }

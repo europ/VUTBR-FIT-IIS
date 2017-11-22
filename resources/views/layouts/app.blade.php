@@ -105,12 +105,18 @@
                 </a>
             </li>
             <li class="list-group-item{{ $current_route_name == "pobocky" ? " active" : ""}}">
-                <a href="{{ route('pobocky') }}">
+                <a href="{{ route('pobocky.index') }}">
                     <span class="fa fa-hospital-o" data-toggle="tooltip" title="Pobočky"></span>
                     <span class="list-group-item-value">Pobočky</span>
                 </a>
             </li>
-            {{--<li class="list-group-item secondary-nav-item-pf" data-target="#ipsum-secondary">
+            {{--<li class="list-group-item{{ $current_route_name == "leky" ? " active" : ""}}">
+                <a href="{{ route('leky') }}">
+                    <span class="fa fa-medkit" data-toggle="tooltip" title="Pobočky"></span>
+                    <span class="list-group-item-value">Léky</span>
+                </a>
+            </li>
+            <li class="list-group-item secondary-nav-item-pf" data-target="#ipsum-secondary">
                 <a>
                     <span class="fa fa-space-shuttle" data-toggle="tooltip" title="Ipsum"></span>
                     <span class="list-group-item-value">Ipsum</span>
