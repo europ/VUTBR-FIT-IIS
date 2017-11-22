@@ -45,7 +45,7 @@
 
 * https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
 ```sh
-git stath # save your changes you have made
+git stash # save your changes you have made
 git fetch --all
 git reset --hard origin/master
 git stash pop # load your saved changes back
