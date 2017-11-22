@@ -21,10 +21,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+        <!--
             <a href="/" class="navbar-brand">
                 <img class="navbar-brand-icon" src="/img/logo-alt.svg" alt=""/>
                 <img class="navbar-brand-name" src="/img/brand-alt.svg" alt="PatternFly Enterprise Application" />
             </a>
+        -->
         </div>
         <nav class="collapse navbar-collapse">
             {{--<ul class="nav navbar-nav">
@@ -33,11 +35,13 @@
                 </li>
             </ul>--}}
             <ul class="nav navbar-nav navbar-right navbar-iconic">
+            <!--
                 <li>
                     <a href="#">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </li>
+            -->
                 <li class="dropdown">
                     <a class="dropdown-toggle nav-item-iconic" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span title="Notifications" class="fa pficon-flag"></span>
