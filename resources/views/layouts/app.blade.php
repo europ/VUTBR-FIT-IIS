@@ -74,8 +74,20 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="/help">Help</a></li>
-                        <li><a href="/about">About</a></li>
+                        <li>
+                            <a href="/help">
+                                <span class="fa fa-question-circle ">
+                                    &nbsp;&nbsp;Help
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about">
+                                <span class="fa fa-info-circle ">
+                                    &nbsp;&nbsp;About
+                                </span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -86,13 +98,33 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li>
+                                <a href="{{ route('register') }}">
+                                    <span class="fa fa-user-plus">
+                                        &nbsp;&nbsp;Register
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('login') }}">
+                                    <span class="fa fa-sign-in">
+                                        &nbsp;&nbsp;&nbsp;Login
+                                    </span>
+                                </a>
+                            </li>
                         @else
-                            <li><a href="#">{{ Auth::user()->name }} (settings)</a></li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-cog">
+                                        &nbsp;&nbsp;{{ Auth::user()->name }}
+                                    </span>
+                                </a>
+                            </li>
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    Logout
+                                    <span class="fa fa-sign-out">
+                                        &nbsp;&nbsp;Logout
+                                    </span>
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
