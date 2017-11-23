@@ -5,12 +5,12 @@
 	<div class="row">
 		<div class="col-md-9">
 			<h1>
-				Users
+				Užívatelé
 			</h1>
 		</div>
 		<div class="col-md-3 text-right">
 			<a href="{{route('register')}}" class="btn btn-primary" style="margin-top: 20px;">
-				<span class="pficon-add-circle-o"></span> Add user
+				<span class="pficon-add-circle-o"></span> Přidať užívatele
 			</a>
 		</div>
 	</div>

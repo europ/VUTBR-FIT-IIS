@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-9">
 			<h1>
-				Dodávatelé
+				Dodavatelé
 			</h1>
 		</div>
 		<div class="col-md-3 text-right">
