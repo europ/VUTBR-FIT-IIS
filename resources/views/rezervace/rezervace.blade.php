@@ -10,7 +10,7 @@
 		</div>
 		<div class="col-md-3 text-right">
 			<a href="{{route('register')}}" class="btn btn-primary" style="margin-top: 20px;">
-				<span class="pficon-add-circle-o"></span> Přidat lék
+				<span class="pficon-add-circle-o"></span> Přidat rezervace
 			</a>
 		</div>
 	</div>
