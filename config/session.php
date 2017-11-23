@@ -29,7 +29,9 @@ return [
     |
     */
 
-    'lifetime' => 120,
+    // TIMEOUT
+    // SETUP: run this in terminal => php artisan config:cache
+    'lifetime' => 10,
 
     'expire_on_close' => false,
 
