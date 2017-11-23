@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+//use DB;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,6 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        //\App\Console\Commands\Inspire::class,
     ];
 
     /**
@@ -26,6 +29,20 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        
+        $schedule->call(function () {
+            $rezervace = \App\Rezervace::get();
+            foreach ($rezervace as $rez) {
+                $time1 = new Carbon($rez->created_at);
+                $timenow = Carbon::now();
+                if($time1->diff($timenow)->days>1){
+                    \App\Rezervace::destroy($rez->id_rezervace);
+                }
+            }
+
+        })->everyMinute();
+
     }
 
     /**
