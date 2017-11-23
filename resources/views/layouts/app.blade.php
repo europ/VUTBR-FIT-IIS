@@ -42,6 +42,7 @@
                     </a>
                 </li>
             -->
+            <!--
                 <li class="dropdown">
                     <a class="dropdown-toggle nav-item-iconic" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span title="Notifications" class="fa pficon-flag"></span>
@@ -62,6 +63,7 @@
                         </div>
                     </div>
                 </li>
+            -->
                 <li class="dropdown">
                     <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span title="Help" class="fa pficon-help"></span>
