@@ -21,6 +21,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <a href="/" class="navbar-brand">
+                <img class="navbar-brand-icon" src="/img/logo-alt.svg" alt=""/>
+                <img class="navbar-brand-name" src="" alt="Lekárna" />
+            </a>
         <!--
             <a href="/" class="navbar-brand">
                 <img class="navbar-brand-icon" src="/img/logo-alt.svg" alt=""/>
