@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class PoistovnyController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('admin')->except(['index', 'show']);
+        $this->middleware('auth');
+    }
         /**
      * Display a listing of the resource.
      *

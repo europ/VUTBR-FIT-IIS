@@ -9,9 +9,11 @@
 			</h1>
 		</div>
 		<div class="col-md-3 text-right">
+			@if (\Auth::user()->isAdmin())
 			<a href="{{route('dodavatele.create')}}" class="btn btn-primary" style="margin-top: 20px;">
 				<span class="pficon-add-circle-o"></span> Přidat dodavatele
 			</a>
+			@endif
 		</div>
 	</div>
 
@@ -27,7 +29,9 @@
 				<th>datum_dodani</th>
 				<th>platnost_smlouvy_od</th>
 				<th>platnost_smlouvy_do</th>
+				@if (\Auth::user()->isAdmin())
 				<th>Akce</th>
+				@endif
 			</tr>
 		</thead>
 		<tfoot>
@@ -38,7 +42,9 @@
 				<th>datum_dodani</th>
 				<th>platnost_smlouvy_od</th>
 				<th>platnost_smlouvy_do</th>
+				@if (\Auth::user()->isAdmin())
 				<th>Akce</th>
+				@endif
 			</tr>
 		</tfoot>
 		<tbody>
@@ -50,6 +56,7 @@
 				<td>{{ $dodavatel->datum_dodani }}</td>
 				<td>{{ $dodavatel->platnost_smlouvy_od }}</td>
 				<td>{{ $dodavatel->platnost_smlouvy_do }}</td>
+				@if (\Auth::user()->isAdmin())
 				<td class="text-center">
 					<a href="{{route('dodavatele.edit', $dodavatel->id_dodavatele)}}" class="btn btn-primary">
 						<span class="pficon-edit"></span>					
@@ -58,6 +65,7 @@
 						<span class="pficon-delete"></span>
 					</a>
 				</td>
+				@endif
 			</tr>
 			@endforeach
 		</tbody>
@@ -76,10 +84,12 @@
 	   		] } );
 	   } );
 
+	var admin = "{{{ (Auth::user()->isAdmin()) ? Auth::user()->isAdmin() : null }}}";
 
    // Using aoColumns
    $(document).ready( function() {
-   	$('#example').dataTable( {
+   	if(admin){
+   		 $('#example').dataTable( {
    		"aoColumns": [ 
    		null,
    		null,
@@ -89,7 +99,18 @@
    		null,
    		{ "bSortable": false }
    		] } );
-   } );
+   	}
+   	else{
+   		$('#example').dataTable( {
+   		"aoColumns": [ 
+   		null,
+   		null,
+   		null,
+   		null,
+   		null,
+   		null
+   		] } );
+   	}
 </script>
 
 @endsection
