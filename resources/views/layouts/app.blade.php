@@ -74,8 +74,8 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="/help">Help</a></li>
+                        <li><a href="/about">About</a></li>
                     </ul>
                 </li>
 

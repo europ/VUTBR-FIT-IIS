@@ -17,6 +17,17 @@ Route::get('/', 'UserController@index');
 //     return view('patternfly.'.$pattern.'.'.$example);
 // });
 
+// HELP
+Route::get('/help', function () {
+    return view('help.help');
+});
+
+// ABOUT
+Route::get('/about', function () {
+    return view('about.about');
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/leky-na-pobocce', 'LekyController@lekyNaPobocce')->name('home');
 // Route::get('/pobocky', 'PobockyController@index')->name('pobocky');
