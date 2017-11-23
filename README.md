@@ -20,12 +20,12 @@
 * Choose frontend template :white_check_mark:
 * Implement authorization to information system (admin/pharmacist) :white_check_mark:
 * Implement types of views :x:
-	* medicines :white_check_mark:
+	* medicines :recycle: WIP (edit/remove/add)
 	* employees :white_check_mark:
-	* distributors :x:
-	* offices :x:
-	* insurances :x:
-	* reservations :x:
+	* distributors :white_check_mark:
+	* offices :white_check_mark:
+	* insurances :recycle: WIP (edit/remove/add)
+	* reservations :recycle: WIP (edit/remove/add)
 * Other :x:
 
 
