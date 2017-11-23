@@ -108,12 +108,37 @@
                     <span class="list-group-item-value">Uživatelé</span>
                 </a>
             </li>
+            <li class="list-group-item{{ $current_route_name == "leky" ? " active" : ""}}">
+                <a href="{{ route('leky') }}">
+                    <span class="fa fa-medkit" data-toggle="tooltip" title="Léky"></span>
+                    <span class="list-group-item-value">Léky</span>
+                </a>
+            </li>
             <li class="list-group-item{{ $current_route_name == "pobocky" ? " active" : ""}}">
                 <a href="{{ route('pobocky.index') }}">
                     <span class="fa fa-hospital-o" data-toggle="tooltip" title="Pobočky"></span>
                     <span class="list-group-item-value">Pobočky</span>
                 </a>
             </li>
+            <li class="list-group-item{{ $current_route_name == "dodavatele" ? " active" : ""}}">
+                <a href="{{ route('dodavatele.index') }}">
+                    <span class="fa fa-ambulance" data-toggle="tooltip" title="Dodavatelé"></span>
+                    <span class="list-group-item-value">Dodavatelé</span>
+                </a>
+            </li>
+            <li class="list-group-item{{ $current_route_name == "rezervace" ? " active" : ""}}">
+                <a href="{{ route('rezervace.index') }}">
+                    <span class="fa fa-clipboard" data-toggle="tooltip" title="Rezervace"></span>
+                    <span class="list-group-item-value">Rezervace</span>
+                </a>
+            </li>
+            <li class="list-group-item{{ $current_route_name == "pojistovny" ? " active" : ""}}">
+                <a href="">
+                    <span class="fa fa-universal-access" data-toggle="tooltip" title="Pojišťovny"></span>
+                    <span class="list-group-item-value">Pojišťovny</span>
+                </a>
+            </li>
+
             {{--<li class="list-group-item{{ $current_route_name == "leky" ? " active" : ""}}">
                 <a href="{{ route('leky') }}">
                     <span class="fa fa-medkit" data-toggle="tooltip" title="Pobočky"></span>
