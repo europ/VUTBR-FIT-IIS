@@ -29,6 +29,7 @@
 				<th>Meno</th>
 				<th>Dátum vytvorenia</th>
 				<th>Dátum úpravy</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tfoot>
@@ -37,6 +38,7 @@
 				<th>Meno</th>
 				<th>Dátum vytvorenia</th>
 				<th>Dátum úpravy</th>
+				<th>Actions</th>
 			</tr>
 		</tfoot>
 		<tbody>
@@ -77,6 +79,7 @@
    $(document).ready( function() {
    	$('#example').dataTable( {
    		"aoColumns": [ 
+   		null,
    		null,
    		null,
    		null,
