@@ -23,9 +23,9 @@ class LekyController extends Controller
         return view('leky.leky')->with('leky', $leky);
     }
 
-    public function lekyNaPobocce() {
-        $userPobockaId = \Auth::user()->id_pobocky;
-        $leky = \App\Pobocka::find($userPobockaId)->leky;
+    public function lekyNaPobocce($id_pobocky) {
+        // $userPobockaId = \Auth::user()->id_pobocky;
+        $leky = \App\Pobocka::find($id_pobocky)->leky;
         return view('leky.leky-na-pobocce')->with('leky',$leky);
     }
 

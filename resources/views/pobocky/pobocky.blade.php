@@ -57,10 +57,9 @@
 						<span class="pficon-delete"></span>
 					</a>
 
-					<!-- toto je na co? :D --> 
-					{{-- <a href="{{route('pobocky.show', $pobocka->id_pobocky)}}" class="btn btn-primary">
+					<a href="{{route('pobocky.show', $pobocka->id_pobocky)}}" class="btn btn-primary">
 						<span class="fa fa-eye"></span>
-					</a> --}}
+					</a>
 				</td>
 				@endif
 			</tr>
