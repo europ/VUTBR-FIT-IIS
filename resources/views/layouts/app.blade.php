@@ -133,7 +133,7 @@
                 </a>
             </li>
             <li class="list-group-item{{ $current_route_name == "pojistovny" ? " active" : ""}}">
-                <a href="">
+                <a href="{{ route('poistovny') }}">
                     <span class="fa fa-universal-access" data-toggle="tooltip" title="Pojišťovny"></span>
                     <span class="list-group-item-value">Pojišťovny</span>
                 </a>
