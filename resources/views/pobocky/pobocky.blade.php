@@ -26,9 +26,7 @@
 				<th>ID</th>
 				<th>Název pobočky</th>
 				<th>Adresa</th>
-				@if (\Auth::user()->isAdmin())
 				<th>Akce</th>
-				@endif
 			</tr>
 		</thead>
 		<tfoot>
@@ -36,9 +34,7 @@
 				<th>ID</th>
 				<th>Název pobočky</th>
 				<th>Adresa</th>
-				@if (\Auth::user()->isAdmin())
 				<th>Akce</th>
-				@endif
 			</tr>
 		</tfoot>
 		<tbody>
@@ -47,21 +43,22 @@
 				<td>{{ $pobocka->id_pobocky }}</td>
 				<td>{{ $pobocka->nazev_pobocky }}</td>
 				<td>{{ $pobocka->adresa_ulice . " " . $pobocka->adresa_cislo . ", " . $pobocka->adresa_psc . " " . $pobocka->adresa_mesto }}</td>
-				@if (\Auth::user()->isAdmin())
 				<td class="text-center">
 					
+				@if (\Auth::user()->isAdmin())
 					<a href="{{route('pobocky.edit', $pobocka->id_pobocky)}}" class="btn btn-primary">
 						<span class="pficon-edit"></span>					
 					</a>
+
 					<a href="{{route('pobocky.confirmDelete', $pobocka->id_pobocky)}}" class="btn btn-primary">
 						<span class="pficon-delete"></span>
 					</a>
+				@endif
 
 					<a href="{{route('pobocky.show', $pobocka->id_pobocky)}}" class="btn btn-primary">
 						<span class="fa fa-eye"></span>
 					</a>
 				</td>
-				@endif
 			</tr>
 			@endforeach
 		</tbody>
