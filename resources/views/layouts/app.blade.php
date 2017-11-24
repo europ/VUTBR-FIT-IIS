@@ -9,7 +9,9 @@
         {{ config('app.name')}}
     </title>
     
-    <link rel="shortcut icon" href="img/logo.svg"/>
+
+    <link rel="icon" href="img/logo.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon" />
 
     <!--<link href="/css/app.css" rel="stylesheet" type="text/css">-->
     <link href="/css/patternfly.min.css" rel="stylesheet" type="text/css">
