@@ -6,9 +6,19 @@
     <div class="col-md-12">
         <div class="blank-slate-pf">
             <h1>
-                ABOUT
+                <strong>ABOUT</strong>
             </h1>
-                <button class="btn btn-default" data-toggle="modal" data-target="#about-modal">Copyright</button>
+            <p>
+                <br> <!-- HACK -->
+                Tento projekt bol vytvorený pre predmet "Informační systémy".
+            </p>
+            <p>
+                Cieľom projektu bolo vytvoriť plne fungujúci informačný systém s webovým rozhraním. Návrh<br>
+                projektu sa zakladal na návrhu vytvoreného v rámci predmetu "Databázové systémy", podľa<br>
+                zvoleného zadania z predmetu "Úvod do softwarového inženýrství".
+                <br><br> <!-- HACK -->
+            </p>
+            <button class="btn btn-default" data-toggle="modal" data-target="#about-modal">Copyright</button>
         </div>
     </div>
 
@@ -21,7 +31,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h1>{{config('app.name')}}</h1>
+                            <h1><strong>{{config('app.name')}}</strong></h1>
                                  <div class="trademark-pf">
                                 <h3>&copy; 2017 Schauer Marek, Šuhaj Peter, Tóth Adrián</h2>
                             </div>
