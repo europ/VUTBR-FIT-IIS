@@ -42,11 +42,20 @@
                             <label for="pobocka" class="col-md-4 control-label">Pobočka</label>
                             <div class="col-md-6">
                                 <select name="pobocka" id="">
-                                    <option value="none">Žádná</option>
-                                    @foreach ($pobocky as $pobocka)
-                                    <option value="{{ $pobocka->id_pobocky }}">{{$pobocka->adresa_mesto . ", " . $pobocka->adresa_ulice . " " . $pobocka->adresa_cislo . ", " . $pobocka->adresa_psc}}</option>
-                                    @endforeach
-                                </select>
+                                        <option value="none">Žádná</option>
+                                        @foreach ($pobocky as $pobocka)
+                                            <option value="{{ $pobocka->id_pobocky }}">{{$pobocka->adresa_mesto . ", " . $pobocka->adresa_ulice . " " . $pobocka->adresa_cislo . ", " . $pobocka->adresa_psc}}</option>
+                                        @endforeach
+                                    </select>
+                                
+                                @if ($errors->has('pobocka'))
+                                    <span class="help-block">
+                                        <font color="#cc0202"> <!-- HACK -->
+                                            <strong>{{ $errors->first('pobocka') }}</strong>
+                                        </font>
+                                    </span>
+                                @endif
+
                             </div>
                         </div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -57,11 +58,22 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
+        if (Input::has('is_admin')) {
+            return Validator::make($data, [
+                'name' => 'required|max:255',
+                'email' => 'required|email|max:255|unique:users',
+                'password' => 'required|min:6|confirmed',
+                'pobocka' => 'required|in:none'
+            ]);
+        }
+        else {   
+            return Validator::make($data, [
+                'name' => 'required|max:255',
+                'email' => 'required|email|max:255|unique:users',
+                'password' => 'required|min:6|confirmed',
+                'pobocka' => 'required|not_in:none'
+            ]);
+        }
     }
 
     /**
@@ -77,7 +89,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'id_pobocky' => $data['pobocka']/* == "none" ? NULL : $data['pobocka']*/,
+            'id_pobocky' => $data['pobocka'] == "none" ? NULL : $data['pobocka'],
             'admin' => $is_admin
         ]);
     }
