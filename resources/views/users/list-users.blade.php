@@ -51,7 +51,7 @@
 			@foreach($users as $user)
 			<tr>
 				<td>{{ $user->id }}</td>
-				<td>{{ $user->admin }}</td>
+				<td>{{ $user->admin == 1 ? "Ano" : "Ne" }}</td>
 				<td>{{ $user->name }}</td>
 				<td>{{ $user->email }}</td>
 				<td>{{ $user->pobocka == NULL ? "-" : $user->pobocka->adresa_ulice}}</td>
@@ -88,6 +88,7 @@
    $(document).ready( function() {
    	$('#example').dataTable( {
    		"aoColumns": [ 
+   		null,
    		null,
    		null,
    		null,
