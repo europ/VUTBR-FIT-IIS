@@ -36,7 +36,7 @@
 				<th>Název léku</th>
 				<th>Cena</th>
 				@if (\Auth::user()->isAdmin())
-				<th>Actions</th>
+				<th>Akce</th>
 				@endif
 			</tr>
 		</thead>
@@ -46,7 +46,7 @@
 				<th>Název léku</th>
 				<th>Cena</th>
 				@if (\Auth::user()->isAdmin())
-				<th>Actions</th>
+				<th>Akce</th>
 				@endif
 			</tr>
 		</tfoot>

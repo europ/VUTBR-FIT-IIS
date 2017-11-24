@@ -26,19 +26,19 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Meno</th>
+				<th>Jméno</th>
 				<th>Dátum vytvorenia</th>
 				<th>Dátum úpravy</th>
-				<th>Actions</th>
+				<th>Akce</th>
 			</tr>
 		</thead>
 		<tfoot>
 			<tr>
 				<th>ID</th>
-				<th>Meno</th>
+				<th>Jméno</th>
 				<th>Dátum vytvorenia</th>
 				<th>Dátum úpravy</th>
-				<th>Actions</th>
+				<th>Akce</th>
 			</tr>
 		</tfoot>
 		<tbody>

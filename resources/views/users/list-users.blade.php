@@ -26,25 +26,25 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Admin</th>
-				<th>Name</th>
+				<th>Správce</th>
+				<th>Jméno</th>
 				<th>Email</th>
 				<th>Pobočka</th>
-				<th>Created at</th>
-				<th>Updated at</th>
-				<th>Actions</th>
+				<th>Dátum vytvorenia</th>
+				<th>Dátum úpravy</th>
+				<th>Akce</th>
 			</tr>
 		</thead>
 		<tfoot>
 			<tr>
 				<th>ID</th>
-				<th>Admin</th>
-				<th>Name</th>
+				<th>Správce</th>
+				<th>Jméno</th>
 				<th>Email</th>
 				<th>Pobočka</th>
-				<th>Created at</th>
-				<th>Updated at</th>
-				<th>Actions</th>
+				<th>Dátum vytvorenia</th>
+				<th>Dátum úpravy</th>
+				<th>Akce</th>
 			</tr>
 		</tfoot>
 		<tbody>

@@ -28,7 +28,7 @@
 				<th>ID</th>
 				<th>Název léku</th>
 				<th>Cena</th>
-				<th>Actions</th>
+				<th>Akce</th>
 			</tr>
 		</thead>
 		<tfoot>
@@ -36,7 +36,7 @@
 				<th>ID</th>
 				<th>Název léku</th>
 				<th>Cena</th>
-				<th>Actions</th>
+				<th>Akce</th>
 			</tr>
 		</tfoot>
 		<tbody>
