@@ -8,34 +8,30 @@
             <h1>
                 ABOUT
             </h1>
+                <button class="btn btn-default" data-toggle="modal" data-target="#about-modal">Copyright</button>
         </div>
     </div>
 
-<!--
-    <div class="col-md-12">
-        <hr/>
-        <div class="blank-slate-pf " id="">
-            <div class="blank-slate-pf-icon">
-                <span class="pficon pficon pficon-add-circle-o"></span>
+            <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content about-modal-pf">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <span class="pficon pficon-close"></span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h1>{{config('app.name')}}</h1>
+                                 <div class="trademark-pf">
+                                <h3>&copy; 2017 Schauer Marek, Šuhaj Peter, Tóth Adrián</h2>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <img src="/img/logo-alt.svg" alt="Patternfly Symbol">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1>
-                Empty State Title
-            </h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p>
-                Learn more about this <a href="#">on the documentation</a>.
-            </p>
-            <div class="blank-slate-pf-main-action">
-                <button class="btn btn-primary btn-lg"> Main Action </button>
-            </div>
-            <div class="blank-slate-pf-secondary-action">
-                <button class="btn btn-default"> Secondary Action </button> <button class="btn btn-default"> Secondary Action </button> <button class="btn btn-default"> Secondary Action </button>
-            </div>
-        </div>
-    </div>
--->
 
 
 @endsection

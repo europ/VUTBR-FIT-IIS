@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{env('APP_NAME')}}</title>
+    <title>
+        {{ config('app.name')}}
+    </title>
+    
+    <link rel="shortcut icon" href="img/logo.svg"/>
 
     <!--<link href="/css/app.css" rel="stylesheet" type="text/css">-->
     <link href="/css/patternfly.min.css" rel="stylesheet" type="text/css">
@@ -23,7 +27,7 @@
             </button>
             <a href="/" class="navbar-brand">
                 <img class="navbar-brand-icon" src="/img/logo-alt.svg" alt=""/>
-                <img class="navbar-brand-name" src="" alt="Lekárna" />
+                <img class="navbar-brand-name" src="" alt="{{config('app.name')}}" />
             </a>
         <!--
             <a href="/" class="navbar-brand">
