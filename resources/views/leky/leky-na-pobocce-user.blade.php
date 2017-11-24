@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-9">
 			<h1>
-				Léky na pobočce {{$pobocka->nazev_pobocky}}
+				Léky na pobočce <strong>{{$pobocka->nazev_pobocky}}</strong>
 			</h1>
 		</div>
 		<div class="col-md-3 text-right">

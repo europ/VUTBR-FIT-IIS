@@ -146,12 +146,16 @@
     <div class="nav-pf-vertical nav-pf-vertical-with-sub-menus">
 
         <ul class="list-group">
-            <li class="list-group-item{{ $current_route_name == "users" ? " active" : ""}}">
-                <a href="{{ route('users') }}">
-                    <span class="fa fa-users" data-toggle="tooltip" title="Uživatelé"></span>
-                    <span class="list-group-item-value">Uživatelé</span>
-                </a>
-            </li>
+            @if (\Auth::user())
+                @if(\Auth::user()->isAdmin())
+                    <li class="list-group-item{{ $current_route_name == "users" ? " active" : ""}}">
+                        <a href="{{ route('users') }}">
+                            <span class="fa fa-users" data-toggle="tooltip" title="Uživatelé"></span>
+                            <span class="list-group-item-value">Uživatelé</span>
+                        </a>
+                    </li>
+                @endif
+            @endif
 
             @if (\Auth::user())
                 @if(\Auth::user()->isAdmin() == false)
