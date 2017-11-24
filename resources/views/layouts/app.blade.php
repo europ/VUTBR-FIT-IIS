@@ -152,12 +152,35 @@
                     <span class="list-group-item-value">Uživatelé</span>
                 </a>
             </li>
+
+            @if (\Auth::user())
+                @if(\Auth::user()->isAdmin() == false)
+                    <li class="list-group-item{{ $current_route_name == "leky-na-pobocce" ? " active" : ""}}">
+                        <a href="{{ route('leky-na-pobocce') }}">
+                            <span class="fa fa-medkit" data-toggle="tooltip" title="Léky"></span>
+                            <span class="list-group-item-value">Léky</span>
+                        </a>
+                    </li>
+                @else
+                    <li class="list-group-item{{ $current_route_name == "leky" ? " active" : ""}}">
+                        <a href="{{ route('leky') }}">
+                            <span class="fa fa-medkit" data-toggle="tooltip" title="Léky"></span>
+                            <span class="list-group-item-value">Léky</span>
+                        </a>
+                     </li>
+                @endif
+            @else
             <li class="list-group-item{{ $current_route_name == "leky" ? " active" : ""}}">
                 <a href="{{ route('leky') }}">
                     <span class="fa fa-medkit" data-toggle="tooltip" title="Léky"></span>
                     <span class="list-group-item-value">Léky</span>
                 </a>
             </li>
+            @endif
+
+
+
+
             <li class="list-group-item{{ $current_route_name == "pobocky" ? " active" : ""}}">
                 <a href="{{ route('pobocky.index') }}">
                     <span class="fa fa-hospital-o" data-toggle="tooltip" title="Pobočky"></span>

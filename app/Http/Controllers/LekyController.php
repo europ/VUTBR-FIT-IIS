@@ -9,7 +9,7 @@ class LekyController extends Controller
 
     public function __construct()
     {
-        $this->middleware('admin')->except(['index', 'show']);
+        $this->middleware('admin')->except(['index', 'show','lekyNaPobocce','lekyNaPobocceUser']);
         $this->middleware('auth');
     }
     /**
@@ -28,6 +28,17 @@ class LekyController extends Controller
         $leky = \App\Pobocka::find($id_pobocky)->leky;
         return view('leky.leky-na-pobocce')->with('leky',$leky);
     }
+
+
+    //getting name of pobocka and drugs for logged in user
+    public function lekyNaPobocceUser() {
+        $userPobockaId = \Auth::user()->id_pobocky;
+        $leky = \App\Pobocka::find($userPobockaId)->leky;
+        $pobocka = \App\Pobocka::find($userPobockaId);
+        return view('leky.leky-na-pobocce-user')->with(compact('leky','pobocka'));
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

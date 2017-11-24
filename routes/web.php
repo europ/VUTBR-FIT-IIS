@@ -29,7 +29,8 @@ Route::get('/about', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/leky-na-pobocce-{id}', 'LekyController@lekyNaPobocce')->name('home');
+Route::get('/leky-na-pobocce-{id}', 'LekyController@lekyNaPobocce')->name('leky-na-pobocce');
+Route::get('/leky-na-pobocce', 'LekyController@lekyNaPobocceUser')->name('leky-na-pobocce');
 // Route::get('/pobocky', 'PobockyController@index')->name('pobocky');
 Route::get('/leky', 'LekyController@index')->name('leky');
 Route::get('/leky/{id}', 'LekyController@show')->name('ukazlek');
