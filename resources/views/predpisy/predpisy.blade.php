@@ -10,7 +10,7 @@
         </div>
 
         <div class="col-md-3 text-right">
-            <a href="{{route('register')}}" class="btn btn-primary" style="margin-top: 20px;">
+            <a href="" class="btn btn-primary" style="margin-top: 20px;">
                 <span class="pficon-add-circle-o"></span> Přidat předpis
             </a>
         </div>
@@ -31,6 +31,7 @@
                 <th>ID</th>
                 <th>Rodné číslo</th>
                 <th>Pojištovna</th>
+                <th>Akce</th>
             </tr>
         </thead>
         <tfoot>
@@ -38,6 +39,7 @@
                 <th>ID</th>
                 <th>Rodné číslo</th>
                 <th>Pojištovna</th>
+                <th>Akce</th>
             </tr>
         </tfoot>
         <tbody>
@@ -47,10 +49,6 @@
                 <td>{{ $pre->rodne_cislo }}</td>
                 <td>{{ $pre->nazev_pojistovny }}</td>
 
-
-
-            <!-- AKCE -->
-            <!--
                 <td class="text-center">
                     <a href="{{-- {{route('user-edit', $user->id)}} --}}" class="btn btn-primary">
                         <span class="pficon-edit"></span>
@@ -59,7 +57,7 @@
                         <span class="pficon-delete"></span>
                     </a>
                 </td>
-            -->
+
 
             </tr>
             @endforeach
@@ -87,7 +85,7 @@
         null,
         null,
         null,
-        //{ "bSortable": false }
+        { "bSortable": false }
         ] } );
    } );
 </script>
