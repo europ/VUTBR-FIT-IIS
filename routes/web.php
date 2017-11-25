@@ -21,11 +21,11 @@
 
 Auth::routes();
 
-// ROOT
-Route::get('/', 'UserController@index');
+// ROOT => goto => HOME
+Route::get('/', 'HomeController@index')->name('home');
 
 // HOME
-Route::get('/home', 'HomeController@index')->name('home'); // TODO remove
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 // #1 USERS
