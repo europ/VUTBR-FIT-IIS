@@ -7,7 +7,7 @@
 
 		<div class="col-md-9">
 			<h1>
-				Pobočka {{$pobocka->nazev_pobocky}}
+				Pobočka <strong>{{$pobocka->nazev_pobocky}}</strong>
 			</h1>
 
 			<h2>Léky</h2>
