@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class PredpisyController extends Controller
 {
@@ -19,8 +20,7 @@ class PredpisyController extends Controller
      */
     public function index()
     {
-        // TODO FIXIT
-        $predpisy = \App\Predpis::with('poistovna')->get();
+        $predpisy =  \DB::table('predpisy')->select('predpisy.id_predpisu','predpisy.rodne_cislo','pojistovny.nazev_pojistovny')->join('pojistovny','pojistovny.id_pojistovny','=','predpisy.id_pojistovny')->get();
         return view('predpisy.predpisy')->with('predpisy', $predpisy);
     }
 

@@ -45,7 +45,7 @@
             <tr>
                 <td>{{ $pre->id_predpisu }}</td>
                 <td>{{ $pre->rodne_cislo }}</td>
-                <td>{{ $pre->nazev_pojistovny }}</td> <!-- TODO FIXIT -->
+                <td>{{ $pre->nazev_pojistovny }}</td>
 
 
 

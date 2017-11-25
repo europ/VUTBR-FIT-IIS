@@ -11,8 +11,9 @@ class Predpis extends Model {
     /**
      * Get the phone record associated with the user.
      */
+
+    //do we need this? TODO
     public function poistovna() {
-    	// TODO FIXIT
         return $this->belongsTo('App\Poistovna', 'id_pojistovny');
     }
 
