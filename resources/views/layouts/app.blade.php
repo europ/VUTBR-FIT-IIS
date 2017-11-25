@@ -197,6 +197,12 @@
                     <span class="list-group-item-value">Dodavatelé</span>
                 </a>
             </li>
+            <li class="list-group-item{{ $current_route_name == "predpisy" ? " active" : ""}}">
+                <a href="{{ route('predpisy') }}">
+                    <span class="fa fa-files-o" data-toggle="tooltip" title="Predpisy"></span>
+                    <span class="list-group-item-value">Předpisy</span>
+                </a>
+            </li>
             <li class="list-group-item{{ $current_route_name == "rezervace" ? " active" : ""}}">
                 <a href="{{ route('rezervace.index') }}">
                     <span class="fa fa-clipboard" data-toggle="tooltip" title="Rezervace"></span>

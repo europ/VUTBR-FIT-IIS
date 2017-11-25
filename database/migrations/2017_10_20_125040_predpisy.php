@@ -15,7 +15,7 @@ class Predpisy extends Migration
     {
         Schema::create('predpisy', function (Blueprint $table){
             $table->increments('id_predpisu');
-            $table->integer('rodne_cislo');
+            $table->string('rodne_cislo');
             $table->integer('id_pojistovny')->unsigned()->nullable();
         });
 
