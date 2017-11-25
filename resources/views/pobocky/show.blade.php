@@ -2,16 +2,18 @@
 
 @section('content')
 <div class="col-md-12">
+
 	<div class="row">
-		<h1>
-			Pobočka {{$pobocka->nazev_pobocky}}
-		</h1>
+
+		<div class="col-md-9">
+			<h1>
+				Pobočka {{$pobocka->nazev_pobocky}}
+			</h1>
+
+			<h2>Léky</h2>
+		</div>
 	</div>
 
-	<!-- Table HTML -->
-	<div class="row">
-		<h2>Léky</h2>
-	</div>
 	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 		<thead>
 			<tr>
@@ -29,20 +31,17 @@
 		</tfoot>
 		<tbody>
 			@foreach($leky as $lek)
-			<tr>
-				<td>{{ $lek->id_leku }}</td>
-				<td>{{ $lek->nazev }}</td>
-				<td>{{ $lek->cena }}</td>
-			</tr>
+				<tr>
+					<td>{{ $lek->id_leku }}</td>
+					<td>{{ $lek->nazev }}</td>
+					<td>{{ $lek->cena }}</td>
+				</tr>
 			@endforeach
 		</tbody>
 	</table>
 
-	<!-- Table HTML -->
-	<div class="row">
-		<h2>Zaměstnanci</h2>
-	</div>
-	<!-- Table HTML -->
+	<h2>Zaměstnanci</h2>
+
 	<table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">
 		<thead>
 			<tr>
@@ -66,6 +65,7 @@
 			@endforeach
 		</tbody>
 	</table>
+	
 </div>
 @endsection
 
