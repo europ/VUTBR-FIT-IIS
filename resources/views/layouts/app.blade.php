@@ -146,43 +146,56 @@
     <div class="nav-pf-vertical nav-pf-vertical-with-sub-menus">
 
         <ul class="list-group">
+
+
             @if (\Auth::user())
+       
                 @if(\Auth::user()->isAdmin())
+       
                     <li class="list-group-item{{ $current_route_name == "users" ? " active" : ""}}">
                         <a href="{{ route('users') }}">
                             <span class="fa fa-users" data-toggle="tooltip" title="Uživatelé"></span>
                             <span class="list-group-item-value">Uživatelé</span>
                         </a>
                     </li>
+       
                 @endif
+       
             @endif
 
+
             @if (\Auth::user())
+
                 @if(\Auth::user()->isAdmin() == false)
+
                     <li class="list-group-item{{ $current_route_name == "leky-na-pobocce" ? " active" : ""}}">
                         <a href="{{ route('leky-na-pobocce') }}">
                             <span class="fa fa-medkit" data-toggle="tooltip" title="Léky"></span>
                             <span class="list-group-item-value">Léky</span>
                         </a>
                     </li>
+
                 @else
+
                     <li class="list-group-item{{ $current_route_name == "leky" ? " active" : ""}}">
                         <a href="{{ route('leky') }}">
                             <span class="fa fa-medkit" data-toggle="tooltip" title="Léky"></span>
                             <span class="list-group-item-value">Léky</span>
                         </a>
                      </li>
+
                 @endif
+
             @else
-            <li class="list-group-item{{ $current_route_name == "leky" ? " active" : ""}}">
-                <a href="{{ route('leky') }}">
-                    <span class="fa fa-medkit" data-toggle="tooltip" title="Léky"></span>
-                    <span class="list-group-item-value">Léky</span>
-                </a>
-            </li>
+
+                <li class="list-group-item{{ $current_route_name == "leky" ? " active" : ""}}">
+                    <a href="{{ route('leky') }}">
+                        <span class="fa fa-medkit" data-toggle="tooltip" title="Léky"></span>
+                        <span class="list-group-item-value">Léky</span>
+                    </a>
+                </li>
+
             @endif
-
-
 
 
             <li class="list-group-item{{ $current_route_name == "pobocky" ? " active" : ""}}">
@@ -191,24 +204,32 @@
                     <span class="list-group-item-value">Pobočky</span>
                 </a>
             </li>
+
+
             <li class="list-group-item{{ $current_route_name == "dodavatele" ? " active" : ""}}">
                 <a href="{{ route('dodavatele.index') }}">
                     <span class="fa fa-ambulance" data-toggle="tooltip" title="Dodavatelé"></span>
                     <span class="list-group-item-value">Dodavatelé</span>
                 </a>
             </li>
+
+
             <li class="list-group-item{{ $current_route_name == "predpisy" ? " active" : ""}}">
                 <a href="{{ route('predpisy') }}">
                     <span class="fa fa-files-o" data-toggle="tooltip" title="Predpisy"></span>
                     <span class="list-group-item-value">Předpisy</span>
                 </a>
             </li>
+
+
             <li class="list-group-item{{ $current_route_name == "rezervace" ? " active" : ""}}">
                 <a href="{{ route('rezervace.index') }}">
                     <span class="fa fa-clipboard" data-toggle="tooltip" title="Rezervace"></span>
                     <span class="list-group-item-value">Rezervace</span>
                 </a>
             </li>
+
+
             <li class="list-group-item{{ $current_route_name == "pojistovny" ? " active" : ""}}">
                 <a href="{{ route('poistovny') }}">
                     <span class="fa fa-universal-access" data-toggle="tooltip" title="Pojišťovny"></span>
@@ -216,87 +237,12 @@
                 </a>
             </li>
 
-            {{--<li class="list-group-item{{ $current_route_name == "leky" ? " active" : ""}}">
-                <a href="{{ route('leky') }}">
-                    <span class="fa fa-medkit" data-toggle="tooltip" title="Pobočky"></span>
-                    <span class="list-group-item-value">Léky</span>
-                </a>
-            </li>
-            <li class="list-group-item secondary-nav-item-pf" data-target="#ipsum-secondary">
-                <a>
-                    <span class="fa fa-space-shuttle" data-toggle="tooltip" title="Ipsum"></span>
-                    <span class="list-group-item-value">Ipsum</span>
-                </a>
 
-                <div id="ipsum-secondary" class="nav-pf-secondary-nav">
-                    <div class="nav-item-pf-header">
-                        <a class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
-                        <span>Ipsum</span>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item active " data-target="#ipsum-intellegam-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Intellegam</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item " data-target="#ipsum-copiosae-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Copiosae</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item " data-target="#ipsum-patrioque-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Patrioque</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="list-group-item secondary-nav-item-pf" data-target="#amet-secondary">
-                <a>
-                    <span class="fa fa-paper-plane" data-toggle="tooltip" title="Amet"></span>
-                    <span class="list-group-item-value">Amet</span>
-                </a>
-                <div id="amet-secondary" class="nav-pf-secondary-nav">
-                    <div class="nav-item-pf-header">
-                        <a class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
-                        <span>Amet</span>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item " data-target="#amet-detracto-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Detracto Suscipiantur</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item " data-target="#amet-mediocrem-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Mediocrem</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item " data-target="#amet-corrumpit-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Corrumpit Cupidatat Proident Deserunt</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <a>
-                    <span class="fa fa-graduation-cap" data-toggle="tooltip" title="Adipscing"></span>
-                    <span class="list-group-item-value">Adipscing</span>
-                </a>
-            </li>
-            <li class="list-group-item">
-                <a>
-                    <span class="fa fa-gamepad" data-toggle="tooltip" title="Lorem"></span>
-                    <span class="list-group-item-value">Lorem</span>
-                </a>
-            </li> --}}
         </ul>
     </div>
-    <div class="container-fluid container-cards-pf container-pf-nav-pf-vertical" id="app">
 
+
+    <div class="container-fluid container-cards-pf container-pf-nav-pf-vertical" id="app">
         <div class="row row-cards-pf">
             @yield('content')
         </div>
