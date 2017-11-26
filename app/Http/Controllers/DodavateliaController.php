@@ -165,14 +165,28 @@ class DodavateliaController extends Controller
         return redirect()->route('dodavatele.index');
     }
 
+    public function confirmDelete($id)
+    {
+        $dodavatel = Dodavatel::find($id);
+        return view('dodavatele.confirm-delete')->with('dodavatel', $dodavatel);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $dodavatel = Dodavatel::find($id);
+
+        if (Dodavatel::destroy($id)) {
+            $request->session()->flash('status-success', "Dodavatel <b>$dodavatel->nazev</b> byla úspěšně smazána.");
+        } else {
+            $request->session()->flash('status-fail', "Dodavatele <b>$dodavatel->nazev</b> se nezdařilo smazat.");
+        }
+        
+        return redirect()->route('dodavatele.index');
     }
 }

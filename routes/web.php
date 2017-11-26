@@ -52,7 +52,7 @@ Route::get('/pobocky/{id}/confirm-delete', 'PobockyController@confirmDelete')->n
 
 // #4 DODAVATELE
 Route::resource('dodavatele', 'DodavateliaController');
-
+Route::get('/dodavatele/{id}/confirm-delete', 'DodavateliaController@confirmDelete')->name('dodavatele.confirmDelete');
 
 // #5 PREDPISY
 Route::get('/predpisy', 'PredpisyController@index')->name('predpisy');

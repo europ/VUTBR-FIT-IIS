@@ -61,7 +61,7 @@
                     <a href="{{route('dodavatele.edit', $dodavatel->id_dodavatele)}}" class="btn btn-primary">
                         <span class="pficon-edit"></span>                   
                     </a>
-                    <a href="{{route('dodavatele.destroy', $dodavatel->id_dodavatele)}}" class="btn btn-primary">
+                    <a href="{{route('dodavatele.confirmDelete', $dodavatel->id_dodavatele)}}" class="btn btn-primary">
                         <span class="pficon-delete"></span>
                     </a>
                 </td>
