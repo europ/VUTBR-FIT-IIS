@@ -10,7 +10,7 @@
 		</div>
 		<div class="col-md-3 text-right">
 			@if (\Auth::user()->isAdmin())
-			<a href="{{-- --}}" class="btn btn-primary" style="margin-top: 20px;">
+			<a href="{{ 'TODO' }}" class="btn btn-primary" style="margin-top: 20px;">
 				<span class="pficon-add-circle-o"></span> Přidat pojišťovnu
 			</a>
 			@endif

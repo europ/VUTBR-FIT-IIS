@@ -82,3 +82,12 @@ Route::get(
 		return view('about.about');
 	}
 );
+
+
+// TODO, temporary, this will be removed
+Route::get(
+	'TODO',
+	function () {
+		return view('TODO');
+	}
+);

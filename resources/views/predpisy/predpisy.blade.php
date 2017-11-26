@@ -10,7 +10,7 @@
         </div>
 
         <div class="col-md-3 text-right">
-            <a href="" class="btn btn-primary" style="margin-top: 20px;">
+            <a href="{{ 'TODO' }}" class="btn btn-primary" style="margin-top: 20px;">
                 <span class="pficon-add-circle-o"></span> Přidat předpis
             </a>
         </div>
@@ -50,10 +50,10 @@
                 <td>{{ $pre->nazev_pojistovny }}</td>
 
                 <td class="text-center">
-                    <a href="{{-- {{route('user-edit', $user->id)}} --}}" class="btn btn-primary">
+                    <a href="{{ 'TODO' }}" class="btn btn-primary">
                         <span class="pficon-edit"></span>
                     </a>
-                    <a href="{{-- {{route('users.confirmDelete', $user->id)}} --}}" class="btn btn-primary">
+                    <a href="{{ 'TODO' }}" class="btn btn-primary">
                         <span class="pficon-delete"></span>
                     </a>
                 </td>
