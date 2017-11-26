@@ -46,7 +46,6 @@ Route::get('/leky-na-pobocce', 'LekyController@lekyNaPobocceUser')->name('leky-n
 
 // #3 POBOCKY
 Route::resource('pobocky', 'PobockyController');
-// Route::get('/pobocky', 'PobockyController@index')->name('pobocky');
 Route::get('/pobocky/{id}/confirm-delete', 'PobockyController@confirmDelete')->name('pobocky.confirmDelete');
 
 
@@ -54,13 +53,13 @@ Route::get('/pobocky/{id}/confirm-delete', 'PobockyController@confirmDelete')->n
 Route::resource('dodavatele', 'DodavateliaController');
 Route::get('/dodavatele/{id}/confirm-delete', 'DodavateliaController@confirmDelete')->name('dodavatele.confirmDelete');
 
+
 // #5 PREDPISY
 Route::get('/predpisy', 'PredpisyController@index')->name('predpisy');
 
 
 // #6 REZERVACE
 Route::resource('rezervace', 'RezervaceController');
-// Route::get('/dodavatele', 'DodavateliaController@index')->name('dodavatele');
 
 
 // #7 POISTOVNY

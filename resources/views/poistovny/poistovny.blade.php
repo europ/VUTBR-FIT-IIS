@@ -46,7 +46,7 @@
 				<td>{{ $poistovna->nazev_pojistovny }}</td>
 				@if (\Auth::user()->isAdmin())
 				<td class="text-center">
-					<a href="{{-- TODO --}}" class="btn btn-primary">
+					<a href="{{route('poistovny.edit', $poistovna->id_pojistovny)}}" class="btn btn-primary">
 						<span class="pficon-edit"></span>					
 					</a>
 					<a href="{{route('poistovny.confirmDelete', $poistovna->id_pojistovny)}}" class="btn btn-primary">

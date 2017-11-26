@@ -31,7 +31,7 @@ class PoistovnyController extends Controller
      */
     public function create()
     {
-        //
+        return view('poistovny.create');
     }
 
     /**
@@ -64,7 +64,8 @@ class PoistovnyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $poistovna = \App\Poistovna::find($id);
+        return view('poistovny.edit')->with('poistovna', $poistovna);
     }
 
     /**
