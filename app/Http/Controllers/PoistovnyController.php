@@ -136,8 +136,9 @@ class PoistovnyController extends Controller
 
 
         //TODO
-        $poistovny_rezer =  DB::table('pojistovny')->join('predpisy','pojistovny.id_pojistovny','=','predpisy.id_pojistovny')->select('*')->where('id_pojistovny','=',$id)->get()->count();
+        //$poistovny_rezer =  DB::table('pojistovny')->join('predpisy','pojistovny.id_pojistovny','=','predpisy.id_pojistovny')->select('*')->where('id_pojistovny','=',$id)->get()->count();
 
+        $poistovny_rezer =  \DB::table('predpisy')->select('predpisy.id_predpisu')->where('id_pojistovny',$id)->get()->count();
 
         // TODO
         // remove $poistovna from tables: predpisy
