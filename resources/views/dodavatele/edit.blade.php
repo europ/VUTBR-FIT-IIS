@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Přidání nového dodavatele</b></div>
+                <div class="panel-heading">Změna dodavatele</b></div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('dodavatele.update', $dodavatel->id_dodavatele) }}">
                         
@@ -88,7 +88,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Vytvořit dodavatele
+                                    Upravit dodavatele
                                 </button>
                             </div>
                         </div>
