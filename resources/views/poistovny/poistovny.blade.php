@@ -10,18 +10,14 @@
 		</div>
 		<div class="col-md-3 text-right">
 			@if (\Auth::user()->isAdmin())
-			<a href="{{route('register')}}" class="btn btn-primary" style="margin-top: 20px;">
-				<span class="pficon-add-circle-o"></span> Přidat pojištovňu
+			<a href="{{-- --}}" class="btn btn-primary" style="margin-top: 20px;">
+				<span class="pficon-add-circle-o"></span> Přidat pojišťovnu
 			</a>
 			@endif
 		</div>
 	</div>
-	@if (Session::has('status'))
-	<div class="alert alert-success" role="alert">
-		<span class="pficon pficon-error-circle-o"></span>
-		{{Session::get('status')}}
-	</div>
-	@endif
+
+	@include('alerts.status')
 
 	<!-- Table HTML -->
 	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -50,10 +46,10 @@
 				<td>{{ $poistovna->nazev_pojistovny }}</td>
 				@if (\Auth::user()->isAdmin())
 				<td class="text-center">
-					<a href="{{-- {{route('user-edit', $user->id)}} --}}" class="btn btn-primary">
+					<a href="{{-- TODO --}}" class="btn btn-primary">
 						<span class="pficon-edit"></span>					
 					</a>
-					<a href="{{-- {{route('users.confirmDelete', $user->id)}} --}}" class="btn btn-primary">
+					<a href="{{route('poistovny.confirmDelete', $poistovna->id_pojistovny)}}" class="btn btn-primary">
 						<span class="pficon-delete"></span>
 					</a>
 				</td>

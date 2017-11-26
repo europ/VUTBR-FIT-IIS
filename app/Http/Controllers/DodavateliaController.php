@@ -186,7 +186,7 @@ class DodavateliaController extends Controller
         } else {
             $request->session()->flash('status-fail', "Dodavatele <b>$dodavatel->nazev</b> se nezdařilo smazat.");
         }
-        
+
         return redirect()->route('dodavatele.index');
     }
 }

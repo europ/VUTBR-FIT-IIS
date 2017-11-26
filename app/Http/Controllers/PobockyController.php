@@ -186,6 +186,5 @@ class PobockyController extends Controller
         }
         
         return redirect()->route('pobocky.index');
-        // return view('pobocky.pobocky')->with('pobocky', Pobocka::get());
     }
 }

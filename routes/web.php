@@ -64,8 +64,8 @@ Route::resource('rezervace', 'RezervaceController');
 
 
 // #7 POISTOVNY
-Route::get('/poistovny','PoistovnyController@index')->name('poistovny');
-
+Route::resource('poistovny', 'PoistovnyController');
+Route::get('/poistovny/{id}/confirm-delete', 'PoistovnyController@confirmDelete')->name('poistovny.confirmDelete');
 
 // HELP
 Route::get(

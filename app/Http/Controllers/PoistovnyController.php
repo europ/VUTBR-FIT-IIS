@@ -79,15 +79,26 @@ class PoistovnyController extends Controller
         //
     }
 
+    public function confirmDelete($id)
+    {
+        $poistovna = \App\Poistovna::find($id);
+        return view('poistovny.confirm-delete')->with('poistovna', $poistovna);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+
+        // TODO
+        // remove $poistovna from tables: pojistovny, predpisy_leky
+
+        $request->session()->flash('status-fail', "TODO: PoistovnyController::destroy()");
+        return redirect()->route('poistovny.index');
     }
 
 
