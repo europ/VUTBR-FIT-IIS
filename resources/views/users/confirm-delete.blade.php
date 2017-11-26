@@ -14,31 +14,3 @@
 
 </div>
 @endsection
-
-@section('scripts')
-
-<script>
-	   // Using aoColumnDefs
-	   $(document).ready( function() {
-	   	$('#example').dataTable( {
-	   		"aoColumnDefs": [ 
-	   		{ "bSortable": false, "aTargets": [ 0 ] }
-	   		] } );
-	   } );
-
-
-   // Using aoColumns
-   $(document).ready( function() {
-   	$('#example').dataTable( {
-   		"aoColumns": [ 
-   		null,
-   		null,
-   		null,
-   		null,
-   		null,
-   		{ "bSortable": false }
-   		] } );
-   } );
-</script>
-
-@endsection
