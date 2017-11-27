@@ -5,16 +5,18 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+                
                 <div class="panel-heading">Editace pobočky {{ $pobocka->nazev_pobocky }}</b></div>
                 <div class="panel-body">
+                
+
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('pobocky.update', ['id' => $pobocka->id_pobocky]) }}">
                         {{ csrf_field() }}
-
                         <input name="_method" type="hidden" value="PATCH">
+
 
                         <div class="form-group{{ $errors->has('nazev_pobocky') ? ' has-error' : '' }}">
                             <label for="nazev_pobocky" class="col-md-4 control-label">Název pobočky</label>
-
                             <div class="col-md-6">
                                 <input id="nazev_pobocky" type="text" class="form-control" name="nazev_pobocky" value="{{ old('nazev_pobocky', $pobocka->nazev_pobocky) }}" required autofocus>
 
@@ -23,14 +25,18 @@
                                     <strong>{{ $errors->first('nazev_pobocky') }}</strong>
                                 </span>
                                 @endif
+
                             </div>
                         </div>
                         
+
                         <div class="form-group">
                             <div class="col-md-4 text-right">
                                 <h2>Adresa</h2>
                             </div>
                         </div>
+
+
                         <div class="form-group{{ $errors->has('adresa_ulice') ? ' has-error' : '' }}">
                             <label for="adresa_ulice" class="col-md-4 control-label">Ulice</label>
 
@@ -45,6 +51,7 @@
                             </div>
                         </div>
 
+
                         <div class="form-group{{ $errors->has('adresa_cislo') ? ' has-error' : '' }}">
                             <label for="adresa_cislo" class="col-md-4 control-label">Číslo ulice</label>
 
@@ -58,6 +65,7 @@
                                 @endif
                             </div>
                         </div>
+
 
                         <div class="form-group{{ $errors->has('adresa_mesto') ? ' has-error' : '' }}">
                             <label for="adresa_mesto" class="col-md-4 control-label">Město</label>
@@ -89,69 +97,6 @@
                         </div>                        
 
 
-                        {{-- 
-nazev_pobocky
-adresa_ulice
-adresa_mesto
-adresa_cislo
-adresa_psc
---}}
-
-                        {{-- <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email', $user->email) }}" required>
-
-                                @if ($errors->has('email'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="pobocka" class="col-md-4 control-label">Pobočka</label>
-                            <div class="col-md-6">
-                                <select name="pobocka" id="">
-                                    <option value="none">Žádná</option>
-                                    @foreach ($pobocky as $pobocka)
-                                    <option value="{{ $pobocka->id_pobocky }}">{{$pobocka->adresa_mesto . ", " . $pobocka->adresa_ulice . " " . $pobocka->adresa_cislo . ", " . $pobocka->adresa_psc}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="is_admin" class="col-md-4 control-label">Admin</label>
-                            <div class="col-md-6">
-                                <input id="is_admin" type="checkbox" class="form-check-input" name="is_admin" @if ($user->admin) checked @endif>
-                            </div>
-                        </div> --}}
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -159,6 +104,8 @@ adresa_psc
                                 </button>
                             </div>
                         </div>
+
+
                     </form>
                 </div>
             </div>
