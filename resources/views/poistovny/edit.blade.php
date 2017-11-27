@@ -27,18 +27,17 @@
                             </div>
                         </div>
 
-                
 
-                        
-                        <!-- TODO -->
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Upravit pojištovnu
                                 </button>
+                                <a class="btn btn-default" href="{{ route('poistovny.index') }}">
+                                    Cancel
+                                </a>
                             </div>
-                        </div>
-                        
+                        </div>                        
 
                     </form>
 

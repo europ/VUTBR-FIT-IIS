@@ -90,6 +90,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     Upravit dodavatele
                                 </button>
+                                <a class="btn btn-default" href="{{ route('dodavatele.index') }}">
+                                    Cancel
+                                </a>
                             </div>
                         </div>
                     </form>

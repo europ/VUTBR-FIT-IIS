@@ -87,6 +87,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     Vytvořit dodavatele
                                 </button>
+                                 <a class="btn btn-default" href="{{ route('dodavatele.index') }}">
+                                    Cancel
+                                </a>
                             </div>
                         </div>
                     </form>

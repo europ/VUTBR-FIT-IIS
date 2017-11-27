@@ -84,6 +84,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     Edit user
                                 </button>
+                                <a class="btn btn-default" href="{{ route('users') }}">
+                                    Cancel
+                                </a>
                             </div>
                         </div>
                     </form>

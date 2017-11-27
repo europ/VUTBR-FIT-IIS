@@ -102,6 +102,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     Upravit pobočku
                                 </button>
+                                <a class="btn btn-default" href="{{ route('pobocky.index') }}">
+                                    Cancel
+                                </a>
                             </div>
                         </div>
 

@@ -30,6 +30,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     Vytvořit pojišťovnu
                                 </button>
+                                <a class="btn btn-default" href="{{ route('poistovny.index') }}">
+                                    Cancel
+                                </a>
                             </div>
                         </div>
                     </form>

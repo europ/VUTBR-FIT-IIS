@@ -18,7 +18,7 @@
                 zvoleného zadania z predmetu "Úvod do softwarového inženýrství".
                 <br><br> <!-- HACK -->
             </p>
-            <button class="btn btn-default" data-toggle="modal" data-target="#about-modal">Copyright</button>
+            <button class="btn btn-info" data-toggle="modal" data-target="#about-modal">Copyright</button>
         </div>
     </div>
 
