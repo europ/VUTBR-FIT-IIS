@@ -31,7 +31,7 @@
                                     Vytvořit pojišťovnu
                                 </button>
                                 <a class="btn btn-default" href="{{ route('poistovny.index') }}">
-                                    Cancel
+                                    Zrušit
                                 </a>
                             </div>
                         </div>

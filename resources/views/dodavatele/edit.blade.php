@@ -91,7 +91,7 @@
                                     Upravit dodavatele
                                 </button>
                                 <a class="btn btn-default" href="{{ route('dodavatele.index') }}">
-                                    Cancel
+                                    Zrušit
                                 </a>
                             </div>
                         </div>

@@ -103,7 +103,7 @@
                                     Upravit pobočku
                                 </button>
                                 <a class="btn btn-default" href="{{ route('pobocky.index') }}">
-                                    Cancel
+                                    Zrušit
                                 </a>
                             </div>
                         </div>

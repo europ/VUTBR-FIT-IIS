@@ -95,7 +95,7 @@
                                     Register
                                 </button>
                                 <a class="btn btn-default" href="{{ route('users') }}">
-                                    Cancel
+                                    Zrušit
                                 </a>
                             </div>
                         </div>
