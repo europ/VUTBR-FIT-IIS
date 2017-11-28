@@ -54,7 +54,7 @@
 				<td>{{ $user->admin == 1 ? "Ano" : "Ne" }}</td>
 				<td>{{ $user->name }}</td>
 				<td>{{ $user->email }}</td>
-				<td>{{ $user->pobocka == NULL ? "-" : $user->pobocka->adresa_ulice}}</td>
+				<td>{{ $user->pobocka == NULL ? "-" : $user->pobocka->nazev_pobocky}}</td>
 				<td>{{ $user->created_at }}</td>
 				<td>{{ $user->updated_at }}</td>
 				<td class="text-center">
