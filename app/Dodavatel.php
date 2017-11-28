@@ -17,4 +17,11 @@ class Dodavatel extends Model {
     	'nazev',  'typ', 'datum_dodani', 'platnost_smlouvy_od', 'platnost_smlouvy_do'
     ];
 
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function leky() {
+        return $this->belongsToMany('App\Liek', 'ceny_dodavatelu', 'id_dodavatele', 'id_leku')->withPivot('cena');
+    }
+
 }

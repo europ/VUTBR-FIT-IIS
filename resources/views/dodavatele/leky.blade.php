@@ -5,21 +5,10 @@
 	<div class="row">
 		<div class="col-md-9">
 			<h1>
-				Léky
+				Léky dodávané dodavatelem <b>{{ $dodavatel->nazev }}</b>
 			</h1>
 		</div>
-		
-		<div class="col-md-3 text-right">
-			@if (\Auth::user()->isAdmin())
-			<a href="{{ route('leky.create') }}" class="btn btn-primary" style="margin-top: 20px;">
-				<span class="pficon-add-circle-o"></span> Přidat lék
-			</a>
-			@endif
-		</div>
-		
 	</div>
-
-
 
 	@include('alerts.status')
 
@@ -53,7 +42,7 @@
 				<td>{{ $lek->cena }}</td>
 				@if (\Auth::user()->isAdmin())
 				<td class="text-center">
-					<a href="{{ route('leky.edit', $lek->id_leku) }}" class="btn btn-primary">
+					{{-- <a href="{{ route('leky.edit', $lek->id_leku) }}" class="btn btn-primary">
 						<span class="pficon-edit"></span>					
 					</a>
 					<a href="{{ route('leky.confirmDelete', $lek->id_leku) }}" class="btn btn-primary">
@@ -62,7 +51,7 @@
 					<a href="{{ route('naskladnit-lek-form', $lek->id_leku) }}" class="btn btn-primary">
 						<span class="fa fa-arrow-right"></span>
 						<span class="fa fa-hospital-o"></span>
-					</a>
+					</a> --}}
 				</td>
 				@endif
 			</tr>

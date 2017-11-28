@@ -1,0 +1,67 @@
++--------+-----------+--------------------------------+--------------------------+------------------------------------------------------------------------+----------------+
+| Domain | Method    | URI                            | Name                     | Action                                                                 | Middleware     |
++--------+-----------+--------------------------------+--------------------------+------------------------------------------------------------------------+----------------+
+|        | GET|HEAD  | /                              | home                     | App\Http\Controllers\HomeController@index                              | web,auth       |
+|        | GET|HEAD  | TODO                           |                          | Closure                                                                | web            |
+|        | GET|HEAD  | about                          |                          | Closure                                                                | web            |
+|        | GET|HEAD  | api/user                       |                          | Closure                                                                | api,auth:api   |
+|        | POST      | dodavatele                     | dodavatele.store         | App\Http\Controllers\DodavateliaController@store                       | web,admin,auth |
+|        | GET|HEAD  | dodavatele                     | dodavatele.index         | App\Http\Controllers\DodavateliaController@index                       | web,auth       |
+|        | GET|HEAD  | dodavatele/create              | dodavatele.create        | App\Http\Controllers\DodavateliaController@create                      | web,admin,auth |
+|        | DELETE    | dodavatele/{dodavatele}        | dodavatele.destroy       | App\Http\Controllers\DodavateliaController@destroy                     | web,admin,auth |
+|        | GET|HEAD  | dodavatele/{dodavatele}        | dodavatele.show          | App\Http\Controllers\DodavateliaController@show                        | web,auth       |
+|        | PUT|PATCH | dodavatele/{dodavatele}        | dodavatele.update        | App\Http\Controllers\DodavateliaController@update                      | web,admin,auth |
+|        | GET|HEAD  | dodavatele/{dodavatele}/edit   | dodavatele.edit          | App\Http\Controllers\DodavateliaController@edit                        | web,admin,auth |
+|        | GET|HEAD  | dodavatele/{id}/confirm-delete | dodavatele.confirmDelete | App\Http\Controllers\DodavateliaController@confirmDelete               | web,admin,auth |
+|        | GET|HEAD  | help                           |                          | Closure                                                                | web            |
+|        | GET|HEAD  | home                           | home                     | App\Http\Controllers\HomeController@index                              | web,auth       |
+|        | GET|HEAD  | leky                           | leky                     | App\Http\Controllers\LekyController@index                              | web,auth       |
+|        | POST      | leky                           | leky.store               | App\Http\Controllers\LekyController@store                              | web,admin,auth |
+|        | GET|HEAD  | leky-na-pobocce                | leky-na-pobocce          | App\Http\Controllers\LekyController@lekyNaPobocceUser                  | web,auth       |
+|        | GET|HEAD  | leky-na-pobocce-{id}           | leky-na-pobocce          | App\Http\Controllers\LekyController@lekyNaPobocce                      | web,auth       |
+|        | GET|HEAD  | leky/create                    | leky.create              | App\Http\Controllers\LekyController@create                             | web,admin,auth |
+|        | GET|HEAD  | leky/{id}                      | ukazlek                  | App\Http\Controllers\LekyController@show                               | web,auth       |
+|        | GET|HEAD  | leky/{leky}                    | leky.show                | App\Http\Controllers\LekyController@show                               | web,auth       |
+|        | PUT|PATCH | leky/{leky}                    | leky.update              | App\Http\Controllers\LekyController@update                             | web,admin,auth |
+|        | DELETE    | leky/{leky}                    | leky.destroy             | App\Http\Controllers\LekyController@destroy                            | web,admin,auth |
+|        | GET|HEAD  | leky/{leky}/edit               | leky.edit                | App\Http\Controllers\LekyController@edit                               | web,admin,auth |
+|        | GET|HEAD  | login                          | login                    | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,guest      |
+|        | POST      | login                          |                          | App\Http\Controllers\Auth\LoginController@login                        | web,guest      |
+|        | POST      | logout                         | logout                   | App\Http\Controllers\Auth\LoginController@logout                       | web            |
+|        | POST      | password/email                 | password.email           | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web,guest      |
+|        | POST      | password/reset                 |                          | App\Http\Controllers\Auth\ResetPasswordController@reset                | web,guest      |
+|        | GET|HEAD  | password/reset                 | password.request         | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,guest      |
+|        | GET|HEAD  | password/reset/{token}         | password.reset           | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,guest      |
+|        | GET|HEAD  | pobocky                        | pobocky.index            | App\Http\Controllers\PobockyController@index                           | web,auth       |
+|        | POST      | pobocky                        | pobocky.store            | App\Http\Controllers\PobockyController@store                           | web,admin,auth |
+|        | GET|HEAD  | pobocky/create                 | pobocky.create           | App\Http\Controllers\PobockyController@create                          | web,admin,auth |
+|        | GET|HEAD  | pobocky/{id}/confirm-delete    | pobocky.confirmDelete    | App\Http\Controllers\PobockyController@confirmDelete                   | web,admin,auth |
+|        | GET|HEAD  | pobocky/{pobocky}              | pobocky.show             | App\Http\Controllers\PobockyController@show                            | web,auth       |
+|        | PUT|PATCH | pobocky/{pobocky}              | pobocky.update           | App\Http\Controllers\PobockyController@update                          | web,admin,auth |
+|        | DELETE    | pobocky/{pobocky}              | pobocky.destroy          | App\Http\Controllers\PobockyController@destroy                         | web,admin,auth |
+|        | GET|HEAD  | pobocky/{pobocky}/edit         | pobocky.edit             | App\Http\Controllers\PobockyController@edit                            | web,admin,auth |
+|        | POST      | poistovny                      | poistovny.store          | App\Http\Controllers\PoistovnyController@store                         | web,admin,auth |
+|        | GET|HEAD  | poistovny                      | poistovny.index          | App\Http\Controllers\PoistovnyController@index                         | web,auth       |
+|        | GET|HEAD  | poistovny/create               | poistovny.create         | App\Http\Controllers\PoistovnyController@create                        | web,admin,auth |
+|        | GET|HEAD  | poistovny/{id}/confirm-delete  | poistovny.confirmDelete  | App\Http\Controllers\PoistovnyController@confirmDelete                 | web,admin,auth |
+|        | DELETE    | poistovny/{poistovny}          | poistovny.destroy        | App\Http\Controllers\PoistovnyController@destroy                       | web,admin,auth |
+|        | PUT|PATCH | poistovny/{poistovny}          | poistovny.update         | App\Http\Controllers\PoistovnyController@update                        | web,admin,auth |
+|        | GET|HEAD  | poistovny/{poistovny}          | poistovny.show           | App\Http\Controllers\PoistovnyController@show                          | web,auth       |
+|        | GET|HEAD  | poistovny/{poistovny}/edit     | poistovny.edit           | App\Http\Controllers\PoistovnyController@edit                          | web,admin,auth |
+|        | GET|HEAD  | predpisy                       | predpisy                 | App\Http\Controllers\PredpisyController@index                          | web,auth       |
+|        | POST      | register                       |                          | App\Http\Controllers\Auth\RegisterController@register                  | web,admin      |
+|        | GET|HEAD  | register                       | register                 | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,admin      |
+|        | POST      | rezervace                      | rezervace.store          | App\Http\Controllers\RezervaceController@store                         | web,admin,auth |
+|        | GET|HEAD  | rezervace                      | rezervace.index          | App\Http\Controllers\RezervaceController@index                         | web,auth       |
+|        | GET|HEAD  | rezervace/create               | rezervace.create         | App\Http\Controllers\RezervaceController@create                        | web,admin,auth |
+|        | DELETE    | rezervace/{rezervace}          | rezervace.destroy        | App\Http\Controllers\RezervaceController@destroy                       | web,admin,auth |
+|        | GET|HEAD  | rezervace/{rezervace}          | rezervace.show           | App\Http\Controllers\RezervaceController@show                          | web,auth       |
+|        | PUT|PATCH | rezervace/{rezervace}          | rezervace.update         | App\Http\Controllers\RezervaceController@update                        | web,admin,auth |
+|        | GET|HEAD  | rezervace/{rezervace}/edit     | rezervace.edit           | App\Http\Controllers\RezervaceController@edit                          | web,admin,auth |
+|        | GET|HEAD  | user/{id}                      |                          | App\Http\Controllers\UserController@show                               | web,admin      |
+|        | GET|HEAD  | user/{id}/delete               | users.confirmDelete      | App\Http\Controllers\UserController@confirmDelete                      | web,admin      |
+|        | GET|HEAD  | user/{id}/edit                 | user-edit                | App\Http\Controllers\UserController@edit                               | web,admin      |
+|        | POST      | user/{id}/edit                 | user-update              | App\Http\Controllers\UserController@update                             | web,admin      |
+|        | GET|HEAD  | users                          | users                    | App\Http\Controllers\UserController@index                              | web,admin      |
+|        | DELETE    | users/{id}                     | users.destroy            | App\Http\Controllers\UserController@destroy                            | web,admin      |
++--------+-----------+--------------------------------+--------------------------+------------------------------------------------------------------------+----------------+

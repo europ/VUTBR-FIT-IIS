@@ -12,11 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call('LekyTableSeeder');
+        $this->call('DodavateleTableSeeder');
         $this->call('PobockyTableSeeder');
         $this->call('PobockyLekyTableSeeder');
         $this->call('PoistovnyTableSeeder');
-        $this->call('DodavateleTableSeeder');
         $this->call('RezervaceTableSeeder');
         $this->call('PredpisyTableSeeder');
+        $this->call('CenyDodavateluSeeder');
     }
 }

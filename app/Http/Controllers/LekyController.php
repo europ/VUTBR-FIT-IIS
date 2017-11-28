@@ -47,7 +47,7 @@ class LekyController extends Controller
      */
     public function create()
     {
-        //
+        return view('leky.create');
     }
 
     /**
@@ -58,7 +58,25 @@ class LekyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'nazev' => 'required|max:255',
+            'cena' => 'required|numeric'
+        ];
+
+        $this->validate($request, $rules);
+        
+        $lek = new \App\Liek;
+
+        $lek->nazev = $request->input('nazev');
+        $lek->cena = $request->input('cena');
+
+        if ($lek->save()) {
+            $request->session()->flash('status-success', "Lék <b>$lek->nazev</b> byl úspěšně vytvořen.");
+        } else {
+            $request->session()->flash('status-fail', "Lék <b>$lek->nazev</b> se nezdařilo vytvořit.");
+        }
+
+        return redirect()->route('leky'); 
     }
 
     /**
@@ -81,7 +99,7 @@ class LekyController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('leky.edit')->with('lek', \App\Liek::find($id));
     }
 
     /**
@@ -93,7 +111,76 @@ class LekyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lek = \App\Liek::find($id);
+        $rules = [
+            'nazev' => 'required|max:255',
+            'cena' => 'required|numeric'
+        ];
+
+        $this->validate($request, $rules);
+
+        $lek->nazev = $request->input('nazev');
+        $lek->cena = $request->input('cena');
+
+        if ($lek->save()) {
+            $request->session()->flash('status-success', "Lék <b>$lek->nazev</b> byl úspěšně upraven.");
+        } else {
+            $request->session()->flash('status-fail', "Lék <b>$lek->nazev</b> se nezdařilo upravit.");
+        }
+
+        return redirect()->route('leky'); 
+    }
+
+
+    public function naskladnit_form($id_leku) {
+        return view('leky.naskladnit')->with(['lek' => \App\Liek::find($id_leku), 'pobocky' => \App\Pobocka::get()]);
+    }
+
+
+    public function naskladnit(Request $request, $id_leku) {
+        $lek = \App\Liek::find($id_leku);
+
+        $rules = [
+            'mnozstvi' => 'required|numeric',
+            'pobocka' => 'required|numeric|not_in:none'
+        ];
+
+        $this->validate($request, $rules);
+        
+        // return $lek->pobocky->find($request->input('pobocka'));
+
+        $pobocky = $lek->pobocky->find($request->input('pobocka'));
+        // return $pobocky;
+        $mnozstvi  = $request->input('mnozstvi');
+        if (count($pobocky) > 0) {
+            if (count($pobocky) > 1) {
+                foreach ($pobocky as $pobocka) {
+                    $mnozstvi += $pobocka->pivot->mnozstvi;
+                }
+            } else {
+                $mnozstvi += $pobocky->pivot->mnozstvi;
+            }
+            $lek->pobocky()->updateExistingPivot($request->input('pobocka'), ['id_leku' => $id_leku, 'mnozstvi' => $mnozstvi]);
+        } else {
+            $lek->pobocky()->attach($request->input('pobocka'), ['id_leku' => $id_leku, 'mnozstvi' => $mnozstvi]);
+        }
+
+
+        
+        $request->session()->flash('status-success', "Lék <b>$lek->nazev</b> byl naskladněn na pobočku <b>" . \App\Pobocka::find($request->input('pobocka'))->nazev_pobocky . "</b> v počtě " . $request->input('mnozstvi') . ".");
+
+        return redirect()->route('leky');
+    }
+
+
+    public function xxx($id) {
+        return count(\App\Liek::find($id)->pobocky);
+    }
+
+    public function confirmDelete($id)
+    {
+        $lek = \App\Liek::find($id);
+        return view('leky.confirm-delete')->with('lek', $lek);
     }
 
     /**
@@ -102,8 +189,16 @@ class LekyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $lek = \App\Liek::find($id);
+
+        if (\App\Liek::destroy($id)) {
+            $request->session()->flash('status-success', "Lék <b>$lek->nazev</b> byl vymazán.");
+        } else {
+            $request->session()->flash('status-fail', "Lék <b>$lek->nazev</b> se nezdařilo smazat.");
+        }
+        
+        return redirect()->route('leky');
     }
 }

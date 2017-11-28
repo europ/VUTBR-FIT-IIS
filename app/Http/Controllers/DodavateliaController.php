@@ -96,7 +96,8 @@ class DodavateliaController extends Controller
      */
     public function show($id)
     {
-        //
+        $dodavatel = Dodavatel::find($id);
+        return view('dodavatele.leky')->with(['dodavatel' => $dodavatel, 'leky' => $dodavatel->leky]);
     }
 
     /**
