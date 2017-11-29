@@ -67,7 +67,7 @@ Route::get('/predpisy/{id}/confirm-delete', 'PredpisyController@confirmDelete')-
 
 // #6 REZERVACE
 Route::resource('rezervace', 'RezervaceController');
-
+Route::get('/rezervace/{id}/confirm-delete', 'RezervaceController@confirmDelete')->name('rezervace.confirmDelete');
 
 // #7 POISTOVNY
 Route::resource('poistovny', 'PoistovnyController');

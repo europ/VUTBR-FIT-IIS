@@ -79,14 +79,22 @@ class RezervaceController extends Controller
         //
     }
 
+    public function confirmDelete($id)
+    {
+        $rezervace = \App\Rezervace::find($id);
+        return view('rezervace.confirm-delete')->with('rezervace', $rezervace);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        // TODO
+        $request->session()->flash('status-fail', "TODO: RezervaceController.destroy()");
+        return redirect()->route('rezervace.index');
     }
 }

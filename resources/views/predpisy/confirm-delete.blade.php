@@ -14,7 +14,7 @@
 			<tr>
 				<th>ID predpisu</th>
 				<th>Rodné číslo</th>
-				<th>ID pojišťovny</th>
+				<th>Pojišťovna</th>
 			</tr>
 		</thead>
 
