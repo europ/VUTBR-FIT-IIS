@@ -33,6 +33,8 @@ class PredpisyController extends Controller
     public function create()
     {
         //
+        $pojistovny = \App\Poistovna::get();
+        return view('predpisy.create')->with('pojistovny', $pojistovny);
     }
 
     /**
@@ -44,6 +46,26 @@ class PredpisyController extends Controller
     public function store(Request $request)
     {
         //
+        $predpis = new \App\Predpis;
+        $rules = [
+            'rodne_cislo' => 'required|max:11',
+            'pojistovna' => 'required|not_in:none'
+        ];
+
+        $this->validate($request, $rules);
+
+        $predpis->rodne_cislo = $request->input('rodne_cislo');
+        $predpis->id_pojistovny = $request->input('pojistovna');
+
+
+        if ($predpis->save()) {
+
+            $request->session()->flash('status-success', "Předpis <b>$id</b> byl úspěšně upraven.");
+        } else {
+            $request->session()->flash('status-fail', "Předpis <b>$id</b> se nezdařilo upravit.");
+        }
+
+        return redirect()->route('predpisy.index'); 
     }
 
     /**
@@ -69,7 +91,9 @@ class PredpisyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $predpis = \App\Predpis::find($id);
+        $pojistovny = \App\Poistovna::get();
+        return view('predpisy.edit')->with(['predpis' => $predpis, 'pojistovny' => $pojistovny]);
     }
 
     /**
@@ -82,6 +106,26 @@ class PredpisyController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $predpis = \App\Predpis::find($id);
+        $rules = [
+            'rodne_cislo' => 'required|max:11',
+            'pojistovna' => 'required|not_in:none'
+        ];
+
+        $this->validate($request, $rules);
+
+        $predpis->rodne_cislo = $request->input('rodne_cislo');
+        $predpis->id_pojistovny = $request->input('pojistovna');
+
+
+        if ($predpis->save()) {
+
+            $request->session()->flash('status-success', "Předpis <b>$id</b> byl úspěšně upraven.");
+        } else {
+            $request->session()->flash('status-fail', "Předpis <b>$id</b> se nezdařilo upravit.");
+        }
+
+        return redirect()->route('predpisy.index'); 
     }
 
     public function confirmDelete($id)
@@ -89,12 +133,7 @@ class PredpisyController extends Controller
         $predpis    = \App\Predpis::find($id);
         $pojistovna = \App\Poistovna::find($predpis->id_pojistovny);
         
-        return view('predpisy.confirm-delete')->with(
-                                                        [
-                                                            'predpis' => $predpis,
-                                                            'pojistovna' => $pojistovna
-                                                        ]
-                                                    );
+        return view('predpisy.confirm-delete')->with(['predpis' => $predpis, 'pojistovna' => $pojistovna]);
     }
 
     /**
@@ -105,8 +144,20 @@ class PredpisyController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        // TODO
-        $request->session()->flash('status-fail', "TODO: PredpisyController.destroy()");
+
+        $predpis = \App\Predpis::find($id);
+
+        //vymazanie zo spojovacej tabulky, TODO osetrit? 
+        DB::table('predpisy_leky')->where('id_predpisu', $id)->delete();   
+
+        if (\App\Predpis::destroy($id)) {
+            $request->session()->flash('status-success', "Předpis č. <b>$predpis->id_predpisu</b> byl vymazán.");
+        } else {
+            $request->session()->flash('status-fail', "Předpis č. <b>$predpis->id_predpisu</b> se nezdařilo smazat.");
+        }
+
+
         return redirect()->route('predpisy.index');
+
     }
 }

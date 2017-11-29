@@ -10,7 +10,7 @@
         </div>
 
         <div class="col-md-3 text-right">
-            <a href="{{ 'TODO' }}" class="btn btn-primary" style="margin-top: 20px;">
+            <a href="{{route('predpisy.create')}}" class="btn btn-primary" style="margin-top: 20px;">
                 <span class="pficon-add-circle-o"></span> Přidat předpis
             </a>
         </div>
@@ -45,7 +45,7 @@
                 <td>{{ $pre->nazev_pojistovny }}</td>
 
                 <td class="text-center">
-                    <a href="{{ 'TODO' }}" class="btn btn-primary">
+                    <a href="{{ route('predpisy.edit', $pre->id_predpisu)}}" class="btn btn-primary">
                         <span class="pficon-edit"></span>
                     </a>
                     <a href="{{ route('predpisy.confirmDelete', $pre->id_predpisu) }}" class="btn btn-primary">

@@ -31,7 +31,15 @@ class Liek extends Model {
     }
 
     public function dodavatele() {
-    	return $this->belongsToMany('App\Dodavatel', 'ceny_dodavatelu', 'id_leku', 'id_dodavatele')->withPivot('cena');
+    	return $this->belongsTo('App\Dodavatel', 'ceny_dodavatelu', 'id_leku', 'id_dodavatele')->withPivot('cena');
+    }
+
+    public function rezervace() {
+    	return $this->belongsToMany('App\Rezervace', 'rezervace_leky', 'id_leku', 'id_rezervace');
+    }
+
+    public function predpisy() {
+    	return $this->belongsToMany('App\Predpis', 'predpisy_leky', 'id_leku', 'id_predpisu');
     }
 
 }

@@ -12,4 +12,12 @@ class Poistovna extends Model
     protected $fillable = [
         'nazev_pojistovny'
     ];
+
+
+public function predpisy() {
+    return $this->hasMany('App\Predpis', 'id_pojistovny');
 }
+
+
+}
+
