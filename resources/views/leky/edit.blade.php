@@ -48,8 +48,8 @@
                                 <button type="submit" class="btn btn-primary">
                                     Upravit lék
                                 </button>
-                                <a class="btn btn-default" href="{{ route('pobocky.index') }}">
-                                    Vrátit se zpět
+                                <a class="btn btn-default" href="{{ route('leky') }}">
+                                    Zrušit
                                 </a>
                             </div>
                         </div>
