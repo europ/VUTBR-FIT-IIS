@@ -27,6 +27,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Název léku</th>
+				<th>Množství</th>
 				<th>Cena</th>
 				<th>Akce</th>
 			</tr>
@@ -35,6 +36,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Název léku</th>
+				<th>Množství</th>
 				<th>Cena</th>
 				<th>Akce</th>
 			</tr>

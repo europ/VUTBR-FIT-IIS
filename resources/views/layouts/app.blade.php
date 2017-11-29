@@ -214,8 +214,8 @@
             </li>
 
 
-            <li class="list-group-item{{ $current_route_name == "predpisy" ? " active" : ""}}">
-                <a href="{{ route('predpisy') }}">
+            <li class="list-group-item{{ $current_route_name == "predpisy.index" ? " active" : ""}}">
+                <a href="{{ route('predpisy.index') }}">
                     <span class="fa fa-files-o" data-toggle="tooltip" title="Predpisy"></span>
                     <span class="list-group-item-value">Předpisy</span>
                 </a>

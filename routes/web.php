@@ -60,7 +60,8 @@ Route::get('/dodavatele/{id}/confirm-delete', 'DodavateliaController@confirmDele
 
 
 // #5 PREDPISY
-Route::get('/predpisy', 'PredpisyController@index')->name('predpisy');
+// Route::get('/predpisy', 'PredpisyController@index')->name('predpisy');
+Route::resource('predpisy', 'PredpisyController')/*->name('predpisy')*/;
 
 
 // #6 REZERVACE

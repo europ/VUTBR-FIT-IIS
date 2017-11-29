@@ -56,6 +56,9 @@
                     <a href="{{ 'TODO' }}" class="btn btn-primary">
                         <span class="pficon-delete"></span>
                     </a>
+                    <a href="{{ route('predpisy.show', $pre->id_predpisu) }}" class="btn btn-primary">
+                        <span class="fa fa-eye"></span>
+                    </a>
                 </td>
 
 
@@ -75,7 +78,7 @@
             "aoColumnDefs": [
             { "bSortable": false, "aTargets": [ 0 ] }
             ] } );
-       } );
+    } );
 
 
    // Using aoColumns
@@ -87,7 +90,7 @@
         null,
         { "bSortable": false }
         ] } );
-   } );
+} );
 </script>
 
 @endsection

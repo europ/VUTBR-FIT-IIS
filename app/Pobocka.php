@@ -21,7 +21,7 @@ class Pobocka extends Model
      * Get the phone record associated with the user.
      */
     public function leky() {
-        return $this->belongsToMany('App\Liek', 'leky_na_pobockach', 'id_pobocky', 'id_leku');
+        return $this->belongsToMany('App\Liek', 'leky_na_pobockach', 'id_pobocky', 'id_leku')->withPivot('mnozstvi');;
     }
 
     public function zamestnanci() {

@@ -147,11 +147,9 @@ class LekyController extends Controller
 
         $this->validate($request, $rules);
         
-        // return $lek->pobocky->find($request->input('pobocka'));
-
         $pobocky = $lek->pobocky->find($request->input('pobocka'));
-        // return $pobocky;
         $mnozstvi  = $request->input('mnozstvi');
+        $err = false;
         if (count($pobocky) > 0) {
             if (count($pobocky) > 1) {
                 foreach ($pobocky as $pobocka) {
@@ -160,14 +158,24 @@ class LekyController extends Controller
             } else {
                 $mnozstvi += $pobocky->pivot->mnozstvi;
             }
-            $lek->pobocky()->updateExistingPivot($request->input('pobocka'), ['id_leku' => $id_leku, 'mnozstvi' => $mnozstvi]);
+            if ($mnozstvi >= 0) {
+                $lek->pobocky()->updateExistingPivot($request->input('pobocka'), ['id_leku' => $id_leku, 'mnozstvi' => $mnozstvi]);
+            } else {
+                $err = "Pobočka by obsahovala záporný počet jednotek léku.";
+            }
         } else {
-            $lek->pobocky()->attach($request->input('pobocka'), ['id_leku' => $id_leku, 'mnozstvi' => $mnozstvi]);
+            if ($mnozstvi >= 0) {
+                $lek->pobocky()->attach($request->input('pobocka'), ['id_leku' => $id_leku, 'mnozstvi' => $mnozstvi]);
+            } else {
+                $err = "Pobočka by obsahovala záporný počet jednotek léku.";
+            }
         }
 
-
-        
-        $request->session()->flash('status-success', "Lék <b>$lek->nazev</b> byl naskladněn na pobočku <b>" . \App\Pobocka::find($request->input('pobocka'))->nazev_pobocky . "</b> v počtě " . $request->input('mnozstvi') . ".");
+        if ($err) {
+            $request->session()->flash('status-fail', "Lék <b>$lek->nazev</b> nebyl naskladněn na pobočku <b>" . \App\Pobocka::find($request->input('pobocka'))->nazev_pobocky . "</b>: ".$err);
+        } else {
+            $request->session()->flash('status-success', "Lék <b>$lek->nazev</b> byl naskladněn na pobočku <b>" . \App\Pobocka::find($request->input('pobocka'))->nazev_pobocky . "</b> v počtě " . $request->input('mnozstvi') . ".");
+        }
 
         return redirect()->route('leky');
     }

@@ -54,7 +54,11 @@ class PredpisyController extends Controller
      */
     public function show($id)
     {
-        //
+        $predpis = \App\Predpis::find($id);
+        // return $predpis;
+        return view('predpisy.show')->with(['predpis' => $predpis, 'leky' => $predpis->leky, 'poistovna' => $predpis->poistovna]);
+        return \App\Predpis::find($id);
+        return \App\Predpis::find($id)->leky;
     }
 
     /**

@@ -90,7 +90,6 @@ class PobockyController extends Controller
     {
         // return count(\App\Pobocka::find($id)->leky);
         $pobocka = Pobocka::find($id);
-
         return view('pobocky.show', ['leky' => $pobocka->leky, 'zamestnanci' => $pobocka->zamestnanci, 'pobocka' => $pobocka]);
     }
 

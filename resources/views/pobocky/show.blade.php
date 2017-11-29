@@ -19,6 +19,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Název léku</th>
+				<th>Množství</th>
 				<th>Cena</th>
 			</tr>
 		</thead>
@@ -26,6 +27,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Název léku</th>
+				<th>Množství</th>
 				<th>Cena</th>
 			</tr>
 		</tfoot>
@@ -34,6 +36,7 @@
 				<tr>
 					<td>{{ $lek->id_leku }}</td>
 					<td>{{ $lek->nazev }}</td>
+					<td>{{ $lek->pivot->mnozstvi }}</td>
 					<td>{{ $lek->cena }}</td>
 				</tr>
 			@endforeach
@@ -96,11 +99,13 @@
    		"aoColumns": [ 
    		null,
    		null,
+   		null,
    		null
    		] } );
    	
    	$('#example2').dataTable( {
    		"aoColumns": [ 
+   		null,
    		null,
    		null,
    		] } );
