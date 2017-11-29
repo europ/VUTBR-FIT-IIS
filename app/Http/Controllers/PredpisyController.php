@@ -93,7 +93,9 @@ class PredpisyController extends Controller
     {
         $predpis = \App\Predpis::find($id);
         $pojistovny = \App\Poistovna::get();
-        return view('predpisy.edit')->with(['predpis' => $predpis, 'pojistovny' => $pojistovny]);
+        //TODO zobrazovat vsetky lieky pri predpise? predpisy budu v ramci celeho systemu a nie pobocky
+        $leky = \App\Liek::get();
+        return view('predpisy.edit')->with(['predpis' => $predpis, 'pojistovny' => $pojistovny, 'leky' => $leky]);
     }
 
     /**

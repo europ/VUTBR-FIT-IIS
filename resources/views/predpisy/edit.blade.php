@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <label for="pojistovna" class="col-md-4 control-label">Pojišťovna</label>
                             <div class="col-md-6">
-                                <select name="pojistovna" id="">
+                                <select class="selectpicker" name="pojistovna" id="">
                                     <option value="none">Žádná</option>
                                     @foreach ($pojistovny as $pojistovna)
                                     <option value="{{ $pojistovna->id_pojistovny }}">{{$pojistovna->nazev_pojistovny}}</option>
@@ -45,6 +45,22 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="liek" class="col-md-4 control-label">Léky</label>
+                            <div class="col-md-6">
+                                <select class="selectpicker" multiple name="liek" id="">
+                                    <option value="none">Žádná</option>
+                                    @foreach ($leky as $lek)
+                                    <option value="{{ $lek->id_leku }}">{{$lek->nazev}}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('liek'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('liek') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
