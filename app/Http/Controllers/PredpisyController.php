@@ -84,14 +84,29 @@ class PredpisyController extends Controller
         //
     }
 
+    public function confirmDelete($id)
+    {
+        $predpis    = \App\Predpis::find($id);
+        $pojistovna = \App\Poistovna::find($predpis->id_pojistovny);
+        
+        return view('predpisy.confirm-delete')->with(
+                                                        [
+                                                            'predpis' => $predpis,
+                                                            'pojistovna' => $pojistovna
+                                                        ]
+                                                    );
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        // TODO
+        $request->session()->flash('status-fail', "TODO: PredpisyController.destroy()");
+        return redirect()->route('predpisy.index');
     }
 }

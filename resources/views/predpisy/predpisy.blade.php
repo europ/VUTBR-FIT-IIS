@@ -17,12 +17,7 @@
 
     </div>
 
-    @if (Session::has('status'))
-    <div class="alert alert-success" role="alert">
-        <span class="pficon pficon-error-circle-o"></span>
-        {{Session::get('status')}}
-    </div>
-    @endif
+    @include('alerts.status')
 
     <!-- Table HTML -->
     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -53,7 +48,7 @@
                     <a href="{{ 'TODO' }}" class="btn btn-primary">
                         <span class="pficon-edit"></span>
                     </a>
-                    <a href="{{ 'TODO' }}" class="btn btn-primary">
+                    <a href="{{ route('predpisy.confirmDelete', $pre->id_predpisu) }}" class="btn btn-primary">
                         <span class="pficon-delete"></span>
                     </a>
                     <a href="{{ route('predpisy.show', $pre->id_predpisu) }}" class="btn btn-primary">
