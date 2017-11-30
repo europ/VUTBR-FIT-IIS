@@ -21,7 +21,7 @@ class Dodavatel extends Model {
      * Get the phone record associated with the user.
      */
     public function leky() {
-        return $this->hasMany('App\Liek', 'ceny_dodavatelu', 'id_dodavatele', 'id_leku')->withPivot('cena');
+        return $this->belongsToMany('App\Liek', 'ceny_dodavatelu', 'id_dodavatele', 'id_leku')->withPivot('cena');
     }
 
 }

@@ -46,7 +46,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     Vložit lék
                                 </button>
-                                @include('parts.backButton')
+                                <a class="btn btn-default" href="{{ route('leky') }}">
+                                    Zrušit
+                                </a>
                             </div>
                         </div>
 

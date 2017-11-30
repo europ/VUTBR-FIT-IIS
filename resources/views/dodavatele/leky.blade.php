@@ -19,9 +19,6 @@
 				<th>ID</th>
 				<th>Název léku</th>
 				<th>Cena</th>
-				@if (\Auth::user()->isAdmin())
-				<th>Akce</th>
-				@endif
 			</tr>
 		</thead>
 		<tfoot>
@@ -29,9 +26,6 @@
 				<th>ID</th>
 				<th>Název léku</th>
 				<th>Cena</th>
-				@if (\Auth::user()->isAdmin())
-				<th>Akce</th>
-				@endif
 			</tr>
 		</tfoot>
 		<tbody>
@@ -40,20 +34,6 @@
 				<td>{{ $lek->id_leku }}</td>
 				<td>{{ $lek->nazev }}</td>
 				<td>{{ $lek->cena }}</td>
-				@if (\Auth::user()->isAdmin())
-				<td class="text-center">
-					{{-- <a href="{{ route('leky.edit', $lek->id_leku) }}" class="btn btn-primary">
-						<span class="pficon-edit"></span>					
-					</a>
-					<a href="{{ route('leky.confirmDelete', $lek->id_leku) }}" class="btn btn-primary">
-						<span class="pficon-delete"></span>
-					</a>
-					<a href="{{ route('naskladnit-lek-form', $lek->id_leku) }}" class="btn btn-primary">
-						<span class="fa fa-arrow-right"></span>
-						<span class="fa fa-hospital-o"></span>
-					</a> --}}
-				</td>
-				@endif
 			</tr>
 			@endforeach
 		</tbody>
@@ -72,27 +52,15 @@
 	   		] } );
 	   } );
 
-	var admin = "{{{ (Auth::user()->isAdmin()) ? Auth::user()->isAdmin() : null }}}";
 
    // Using aoColumns
    $(document).ready( function() {
-    if(admin){
-   		 $('#example').dataTable( {
-   		"aoColumns": [ 
-   		null,
-   		null,
-   		null,
-   		{ "bSortable": false }
-   		] } );
-   	}
-   	else{
    		$('#example').dataTable( {
    		"aoColumns": [ 
    		null,
    		null,
    		null
    		] } );
-   	}
    } );
 </script>
 

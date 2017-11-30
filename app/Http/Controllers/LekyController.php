@@ -59,7 +59,7 @@ class LekyController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'nazev' => 'required|max:255',
+            'nazev' => 'required|max:255|unique:leky',
             'cena' => 'required|numeric'
         ];
 
