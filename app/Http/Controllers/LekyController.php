@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class LekyController extends Controller
 {
@@ -59,7 +60,11 @@ class LekyController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'nazev' => 'required|max:255|unique:leky',
+            'nazev' => [
+                'required',
+                'max:255',
+                Rule::unique('leky', 'nazev')->ignore($lek->id_leku, 'id_leku')
+            ],
             'cena' => 'required|numeric'
         ];
 
@@ -113,7 +118,11 @@ class LekyController extends Controller
     {
         $lek = \App\Liek::find($id);
         $rules = [
-            'nazev' => 'required|max:255',
+            'nazev' => [
+                'required',
+                'max:255',
+                Rule::unique('leky', 'nazev')->ignore($lek->id_leku, 'id_leku')
+            ],
             'cena' => 'required|numeric'
         ];
 
