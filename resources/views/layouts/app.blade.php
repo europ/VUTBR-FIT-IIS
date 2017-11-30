@@ -198,7 +198,7 @@
             @endif
 
 
-            <li class="list-group-item{{ $current_route_name == "pobocky" ? " active" : ""}}">
+            <li class="list-group-item{{ $current_route_name == "pobocky.index" ? " active" : ""}}">
                 <a href="{{ route('pobocky.index') }}">
                     <span class="fa fa-hospital-o" data-toggle="tooltip" title="Pobočky"></span>
                     <span class="list-group-item-value">Pobočky</span>
@@ -206,7 +206,7 @@
             </li>
 
 
-            <li class="list-group-item{{ $current_route_name == "dodavatele" ? " active" : ""}}">
+            <li class="list-group-item{{ $current_route_name == "dodavatele.index" ? " active" : ""}}">
                 <a href="{{ route('dodavatele.index') }}">
                     <span class="fa fa-ambulance" data-toggle="tooltip" title="Dodavatelé"></span>
                     <span class="list-group-item-value">Dodavatelé</span>
@@ -222,14 +222,14 @@
             </li>
 
 
-            <li class="list-group-item{{ $current_route_name == "rezervace" ? " active" : ""}}">
+            <li class="list-group-item{{ $current_route_name == "rezervace.index" ? " active" : ""}}">
                 <a href="{{ route('rezervace.index') }}">
                     <span class="fa fa-clipboard" data-toggle="tooltip" title="Rezervace"></span>
                     <span class="list-group-item-value">Rezervace</span>
                 </a>
             </li>
 
-            <li class="list-group-item{{ $current_route_name == "pojistovny" ? " active" : ""}}">
+            <li class="list-group-item{{ $current_route_name == "poistovny.index" ? " active" : ""}}">
                 <a href="{{ route('poistovny.index') }}">
                     <span class="fa fa-universal-access" data-toggle="tooltip" title="Pojišťovny"></span>
                     <span class="list-group-item-value">Pojišťovny</span>
