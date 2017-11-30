@@ -5,47 +5,28 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Změna předpisu č. <b>{{ $predpis->id_predpisu }}</b></div>
+                <div class="panel-heading">Změna rezervace č. <b>{{ $rezervace->id_rezervace }}</b></div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('predpisy.update', ['id' => $predpis->id_predpisu]) }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('rezervace.update', ['id' => $rezervace->id_rezervace]) }}">
                        
                         {{ csrf_field() }}
 
                         <input name="_method" type="hidden" value="PATCH">
 
-                        <div class="form-group{{ $errors->has('rodne_cislo') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Rodné číslo</label>
+                        <div class="form-group{{ $errors->has('jmeno_zakaznika') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Jméno zákazníka</label>
 
                             <div class="col-md-6">
-                                <input id="rodne_cislo" type="text" class="form-control" name="rodne_cislo" value="{{ old('rodne_cislo', $predpis->rodne_cislo) }}" required autofocus>
+                                <input id="jmeno_zakaznika" type="text" class="form-control" name="jmeno_zakaznika" value="{{ old('jmeno_zakaznika', $rezervace->jmeno_zakaznika) }}" required autofocus>
 
-                                @if ($errors->has('rodne_cislo'))
+                                @if ($errors->has('jmeno_zakaznika'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('rodne_cislo') }}</strong>
+                                    <strong>{{ $errors->first('jmeno_zakaznika') }}</strong>
                                 </span>
                                 @endif
                             </div>
                         </div>
 
-
-                        <div class="form-group">
-                            <label for="pojistovna" class="col-md-4 control-label">Pojišťovna</label>
-                            <div class="col-md-6">
-                                <select class="selectpicker" name="pojistovna" id="">
-                                    <option value="none">Žádná</option>
-                                    @foreach ($pojistovny as $pojistovna)
-                                    <option value="{{ $pojistovna->id_pojistovny }}" 
-                                    {{$pojist == $pojistovna->id_pojistovny ? "selected":""}}
-                                    >{{$pojistovna->nazev_pojistovny}}</option>
-                                    @endforeach
-                                </select>
-                                @if ($errors->has('pojistovna'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('pojistovna') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
 
                      <div class="form-group">
                             <label for="leky" class="col-md-4 control-label">Léky</label>
@@ -70,9 +51,9 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary" >
-                                    Upraviť předpis
+                                    Upraviť rezervace
                                 </button>
-                                <a class="btn btn-default" href="{{ route('predpisy.index') }}">
+                                <a class="btn btn-default" href="{{ route('rezervace.index') }}">
                                     Zrušit
                                 </a>
                             </div>

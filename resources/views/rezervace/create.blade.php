@@ -5,44 +5,27 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Přidaní předpisu</b></div>
+                <div class="panel-heading">Přidaní rezervace</b></div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('predpisy.store')}}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('rezervace.store')}}">
                        
                         {{ csrf_field() }}
 
 
-                        <div class="form-group{{ $errors->has('rodne_cislo') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Rodné číslo</label>
+                        <div class="form-group{{ $errors->has('jmeno_zakaznika') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Jméno zákazníka</label>
 
                             <div class="col-md-6">
-                                <input id="rodne_cislo" type="text" class="form-control" name="rodne_cislo" value="{{ old('rodne_cislo') }}" required autofocus>
+                                <input id="jmeno_zakaznika" type="text" class="form-control" name="jmeno_zakaznika" value="{{ old('jmeno_zakaznika') }}" required autofocus>
 
-                                @if ($errors->has('rodne_cislo'))
+                                @if ($errors->has('jmeno_zakaznika'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('rodne_cislo') }}</strong>
+                                    <strong>{{ $errors->first('jmeno_zakaznika') }}</strong>
                                 </span>
                                 @endif
                             </div>
                         </div>
 
-
-                        <div class="form-group">
-                            <label for="pojistovna" class="col-md-4 control-label">Pojišťovna</label>
-                            <div class="col-md-6">
-                                <select class="selectpicker" name="pojistovna" id="">
-                                    <option value="none">Žádná</option>
-                                    @foreach ($pojistovny as $pojistovna)
-                                    <option value="{{ $pojistovna->id_pojistovny }}">{{$pojistovna->nazev_pojistovny}}</option>
-                                    @endforeach
-                                </select>
-                                @if ($errors->has('pojistovna'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('pojistovna') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <label for="leky" class="col-md-4 control-label">Léky</label>
@@ -65,7 +48,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary" >
-                                    Vytvoriť předpis
+                                    Vytvoriť rezervace
                                 </button>
                                 <a class="btn btn-default" href="{{ route('predpisy.index') }}">
                                     Zrušit

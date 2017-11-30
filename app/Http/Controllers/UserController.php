@@ -7,7 +7,7 @@ use Illuminate\Validation\Rule;
 use DB;
 use App\User;
 use App\Pobocka;
-
+use Illuminate\Support\Facades\Input;
 
 
 class UserController extends Controller
@@ -87,16 +87,27 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
         $user = User::find($id);
-        $rules = [
-            'email' => [
-                'required',
-                'email',
-                'max:255',
-                Rule::unique('users')->ignore($user->id),
-            ],
-            'name' => 'required|max:255',
-        ];
+        
+        if (Input::has('is_admin')) {
+             $rules = [
+                'name' => 'required|max:255',
+                'email' => 'required|email|max:255',
+                'password' => 'required|min:6|confirmed',
+                'pobocka' => 'required|in:none'
+            ];
+        }
+        else {   
+             $rules = [
+                'name' => 'required|max:255',
+                'email' => 'required|email|max:255',
+                'password' => 'required|min:6|confirmed',
+                'pobocka' => 'required|not_in:none'
+            ];
+        }
+
 
         if (!empty($request->input('password'))) {
             $rules['password'] = 'min:6|confirmed';

@@ -9,7 +9,7 @@
 			</h1>
 		</div>
 		<div class="col-md-3 text-right">
-			<a href="{{ 'TODO' }}" class="btn btn-primary" style="margin-top: 20px;">
+			<a href="{{ route('rezervace.create') }}" class="btn btn-primary" style="margin-top: 20px;">
 				<span class="pficon-add-circle-o"></span> Přidat rezervace
 			</a>
 		</div>
@@ -45,12 +45,15 @@
 				<td>{{ $rez->created_at }}</td>
 				<td>{{ $rez->updated_at }}</td>
 				<td class="text-center">
-					<a href="{{ 'TODO' }}" class="btn btn-primary">
+					<a href="{{ route('rezervace.edit', $rez->id_rezervace) }}" class="btn btn-primary">
 						<span class="pficon-edit"></span>					
 					</a>
 					<a href="{{ route('rezervace.confirmDelete', $rez->id_rezervace) }}" class="btn btn-primary">
 						<span class="pficon-delete"></span>
 					</a>
+	                <a href="{{ route('rezervace.show', $rez->id_rezervace) }}" class="btn btn-primary">
+                        <span class="fa fa-eye"></span>
+                    </a>
 				</td>
 			</tr>
 			@endforeach

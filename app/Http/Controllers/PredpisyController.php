@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 
+
+
 class PredpisyController extends Controller
 {
 
@@ -34,7 +36,8 @@ class PredpisyController extends Controller
     {
         //
         $pojistovny = \App\Poistovna::get();
-        return view('predpisy.create')->with('pojistovny', $pojistovny);
+        $leky = \App\Liek::get();
+        return view('predpisy.create')->with(['pojistovny' => $pojistovny,'leky' => $leky]);
     }
 
     /**
@@ -49,7 +52,8 @@ class PredpisyController extends Controller
         $predpis = new \App\Predpis;
         $rules = [
             'rodne_cislo' => 'required|max:11',
-            'pojistovna' => 'required|not_in:none'
+            'pojistovna' => 'required|not_in:none',
+            'leky' => 'required'
         ];
 
         $this->validate($request, $rules);
@@ -58,11 +62,16 @@ class PredpisyController extends Controller
         $predpis->id_pojistovny = $request->input('pojistovna');
 
 
-        if ($predpis->save()) {
+        $leky = $request->input('leky');
 
-            $request->session()->flash('status-success', "Předpis <b>$id</b> byl úspěšně upraven.");
+
+        if ($predpis->save()) {
+            foreach($_POST['leky'] as $lek){
+                DB::table('predpisy_leky')->insert(['id_leku' => $lek, 'id_predpisu'=> $predpis->id_predpisu]); 
+            } 
+            $request->session()->flash('status-success', "Předpis <b>$predpis->id_predpisu</b> byl úspěšně vytvoren.");
         } else {
-            $request->session()->flash('status-fail', "Předpis <b>$id</b> se nezdařilo upravit.");
+            $request->session()->flash('status-fail', "Předpis se nezdařilo vytvorit.");
         }
 
         return redirect()->route('predpisy.index'); 
@@ -95,7 +104,15 @@ class PredpisyController extends Controller
         $pojistovny = \App\Poistovna::get();
         //TODO zobrazovat vsetky lieky pri predpise? predpisy budu v ramci celeho systemu a nie pobocky
         $leky = \App\Liek::get();
-        return view('predpisy.edit')->with(['predpis' => $predpis, 'pojistovny' => $pojistovny, 'leky' => $leky]);
+
+        $poistovnatmp = \App\Predpis::find($id);
+        
+        $poistovna = $poistovnatmp->id_pojistovny;
+        //$lekypredpisu = DB::table('predpisy_leky')->select('predpisy_leky.id_leku')->where('id_predpisu', $id)->get();
+
+        //$lekypredpisu = $lekypredpisu->toArray();
+
+        return view('predpisy.edit')->with(['predpis' => $predpis, 'pojistovny' => $pojistovny, 'leky' => $leky,'pojist' => $poistovna /*, 'lekypredpisu' => $lekypredpisu*/]);
     }
 
     /**
@@ -107,11 +124,12 @@ class PredpisyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
         $predpis = \App\Predpis::find($id);
         $rules = [
             'rodne_cislo' => 'required|max:11',
-            'pojistovna' => 'required|not_in:none'
+            'pojistovna' => 'required|not_in:none',
+            'leky' => 'required'
         ];
 
         $this->validate($request, $rules);
@@ -119,9 +137,16 @@ class PredpisyController extends Controller
         $predpis->rodne_cislo = $request->input('rodne_cislo');
         $predpis->id_pojistovny = $request->input('pojistovna');
 
+        $leky = $request->input('leky');
+
+        //remove all entries from predpisy leky
+        DB::table('predpisy_leky')->where('id_predpisu', $id)->delete(); 
 
         if ($predpis->save()) {
-
+            //add new entries to predpisy leky
+            foreach($_POST['leky'] as $lek){
+                DB::table('predpisy_leky')->insert(['id_leku' => $lek, 'id_predpisu'=> $predpis->id_predpisu]); 
+            } 
             $request->session()->flash('status-success', "Předpis <b>$id</b> byl úspěšně upraven.");
         } else {
             $request->session()->flash('status-fail', "Předpis <b>$id</b> se nezdařilo upravit.");
