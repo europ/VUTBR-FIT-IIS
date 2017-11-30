@@ -123,7 +123,19 @@ class UserController extends Controller
         $user->admin = $request->input('is_admin') ? 1 : 0;
         $user->save();
 
-        return redirect('/');
+        // TODO: ADD THIS
+        /*******
+        if () {
+        *******/
+            $request->session()->flash('status-success', "Užívatel <b>$user->email</b> byl úspěšně upraven.");
+        /*******
+        }
+        else {
+            $request->session()->flash('status-fail', "Užívatele <b>$email->email</b> se nezdařilo upravit.");
+        }
+        *******/
+
+        return view('users.list-users')->with('users', User::get());
 
     }
 
