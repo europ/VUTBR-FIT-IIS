@@ -132,19 +132,15 @@ class UserController extends Controller
             $user->id_pobocky = NULL;
         }
         $user->admin = $request->input('is_admin') ? 1 : 0;
-        $user->save();
+        
 
         // TODO: ADD THIS
-        /*******
-        if () {
-        *******/
+        if ($user->save()) {
             $request->session()->flash('status-success', "Užívatel <b>$user->email</b> byl úspěšně upraven.");
-        /*******
         }
         else {
-            $request->session()->flash('status-fail', "Užívatele <b>$email->email</b> se nezdařilo upravit.");
+            $request->session()->flash('status-fail', "Užívatele <b>$user->email</b> se nezdařilo upravit.");
         }
-        *******/
 
         return view('users.list-users')->with('users', User::get());
 

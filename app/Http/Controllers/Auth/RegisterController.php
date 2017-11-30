@@ -64,17 +64,12 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-        // TODO: ADD THIS
-        /*******
-        if () {
-        *******/
+        if ($user) {
             $request->session()->flash('status-success', "Užívatel <b>$user->email</b> byl úspěšně registrován.");
-        /*******
         }
         else {
             $request->session()->flash('status-fail', "Užívatele <b>$email->email</b> se nezdařilo registrovat.");
         }
-        *******/
 
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
@@ -93,7 +88,7 @@ class RegisterController extends Controller
                 'name' => 'required|max:255',
                 'email' => 'required|email|max:255|unique:users',
                 'password' => 'required|min:6|confirmed',
-                'pobocka' => 'required|in:none'
+                // 'pobocka' => 'required|in:none'
             ]);
         }
         else {   
