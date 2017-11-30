@@ -24,6 +24,10 @@ class Pobocka extends Model
         return $this->belongsToMany('App\Liek', 'leky_na_pobockach', 'id_pobocky', 'id_leku')->withPivot('mnozstvi');
     }
 
+    public function prodaneLeky() {
+        return $this->belongsToMany('App\Liek', 'prodane_leky', 'id_pobocky', 'id_leku')->withPivot(['datum', 'mnozstvi']);
+    }
+
     public function zamestnanci() {
     	return $this->hasMany('App\User', 'id_pobocky');
     }

@@ -42,4 +42,8 @@ class Liek extends Model {
     	return $this->belongsToMany('App\Predpis', 'predpisy_leky', 'id_leku', 'id_predpisu');
     }
 
+    public function prodane() {
+    	return $this->belongsToMany('App\Pobocka', 'prodane_leky', 'id_leku', 'id_pobocky')->withPivot(['datum', 'mnozstvi']);
+    }
+
 }

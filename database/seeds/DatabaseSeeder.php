@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         // $this->call('RezervaceTableSeeder');
         // $this->call('PredpisyTableSeeder');
         // $this->call('CenyDodavateluSeeder');
-        $this->call('PredpisyLekySeeder');
+        // $this->call('PredpisyLekySeeder');
+        $this->call('ProdaneLekySeeder');
     }
 }

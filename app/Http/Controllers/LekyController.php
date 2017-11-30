@@ -189,11 +189,6 @@ class LekyController extends Controller
         return redirect()->route('leky');
     }
 
-
-    public function xxx($id) {
-        return count(\App\Liek::find($id)->pobocky);
-    }
-
     public function confirmDelete($id)
     {
         $lek = \App\Liek::find($id);
