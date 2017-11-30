@@ -14,14 +14,9 @@
 			</a>
 		</div>
 	</div>
-	@if (Session::has('status'))
-	<div class="alert alert-success" role="alert">
-		<span class="pficon pficon-error-circle-o"></span>
-		{{Session::get('status')}}
-	</div>
-	@endif
 
-	<!-- Table HTML -->
+	@include('alerts.status')
+
 	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 		<thead>
 			<tr>

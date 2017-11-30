@@ -143,9 +143,12 @@ class UserController extends Controller
     {
         $email = User::find($id);
         if (User::destroy($id)) {
-            $request->session()->flash('status', "User $email->email was successfully deleted");
+            $request->session()->flash('status-success', "Užívatel <b>$email->email</b> byl úspěšně vymazán.");
         }
-        
+        else {
+            $request->session()->flash('status-fail', "Užívatele <b>$email->email</b> se nezdařilo smazat.");
+        }
+
         return view('users.list-users')->with('users', User::get());
     }
 }
