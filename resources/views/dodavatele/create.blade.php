@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <label for="jednorazovy" class="col-md-4 control-label">Jednorázový</label>
                             <div class="col-md-6">
-                                <input id="jednorazovy" type="checkbox" class="form-check-input" name="jednorazovy">
+                                <input id="jednorazovy" type="checkbox" class="form-check-input" name="jednorazovy" @if (old('jednorazovy')) checked @endif>
                             </div>
                         </div>
 
@@ -113,6 +113,12 @@ $('#date-2').datepicker(datepickerSettings);
 $('#date-3').datepicker(datepickerSettings);
 $('#date-4').datepicker(datepickerSettings);
 $('#jednorazovy-block').hide();
+@if (old('jednorazovy'))
+$('#od-do-block').hide();
+$('#jednorazovy-block').show();
+@else
+$('#jednorazovy-block').hide();
+@endif
 $('#jednorazovy').click(function() {
     $("#od-do-block").toggle();
     $("#jednorazovy-block").toggle();
