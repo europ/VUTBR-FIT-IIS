@@ -14,8 +14,8 @@
 			<tr>
 				<th>ID</th>
 				<th>Jméno</th>
-				<th>Dátum vytvorenia</th>
-				<th>Dátum úpravy</th>
+				<th>Datum vytvoření</th>
+				<th>Datum úpravy</th>
 			</tr>
 		</thead>
 

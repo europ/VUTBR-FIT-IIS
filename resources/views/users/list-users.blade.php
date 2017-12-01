@@ -25,8 +25,8 @@
 				<th>Jméno</th>
 				<th>Email</th>
 				<th>Pobočka</th>
-				<th>Dátum vytvorenia</th>
-				<th>Dátum úpravy</th>
+				<th>Datum vytvoření</th>
+				<th>Datum úpravy</th>
 				<th>Akce</th>
 			</tr>
 		</thead>
@@ -37,8 +37,8 @@
 				<th>Jméno</th>
 				<th>Email</th>
 				<th>Pobočka</th>
-				<th>Dátum vytvorenia</th>
-				<th>Dátum úpravy</th>
+				<th>Datum vytvoření</th>
+				<th>Datum úpravy</th>
 				<th>Akce</th>
 			</tr>
 		</tfoot>

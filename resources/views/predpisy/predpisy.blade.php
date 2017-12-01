@@ -25,7 +25,7 @@
             <tr>
                 <th>ID</th>
                 <th>Rodné číslo</th>
-                <th>Pojištovna</th>
+                <th>Pojišťovna</th>
                 <th>Akce</th>
             </tr>
         </thead>
@@ -33,7 +33,7 @@
             <tr>
                 <th>ID</th>
                 <th>Rodné číslo</th>
-                <th>Pojištovna</th>
+                <th>Pojišťovna</th>
                 <th>Akce</th>
             </tr>
         </tfoot>
