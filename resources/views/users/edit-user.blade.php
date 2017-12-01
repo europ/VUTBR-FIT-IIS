@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Heslo</label>
+                            <label for="password" class="col-md-4 control-label">Heslo <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password">
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Potvrzení hesla</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Potvrzení hesla <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation">

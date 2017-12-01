@@ -14,7 +14,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('nazev') ? ' has-error' : '' }}">
-                            <label for="nazev" class="col-md-4 control-label">Název léku</label>
+                            <label for="nazev" class="col-md-4 control-label">Název léku <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <input id="nazev" type="text" class="form-control" name="nazev" value="{{ old('nazev') }}" required autofocus>
 
@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('cena') ? ' has-error' : '' }}">
-                            <label for="cena" class="col-md-4 control-label">Cena (Kč)</label>
+                            <label for="cena" class="col-md-4 control-label">Cena (Kč) <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="cena" type="text" class="form-control" name="cena" value="{{ old('cena') }}" required autofocus>

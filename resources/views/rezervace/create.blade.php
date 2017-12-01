@@ -13,7 +13,7 @@
 
 
                         <div class="form-group{{ $errors->has('jmeno_zakaznika') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Jméno zákazníka</label>
+                            <label for="name" class="col-md-4 control-label">Jméno zákazníka <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="jmeno_zakaznika" type="text" class="form-control" name="jmeno_zakaznika" value="{{ old('jmeno_zakaznika') }}" required autofocus>
@@ -28,7 +28,7 @@
 
 
                         <div class="form-group">
-                            <label for="leky" class="col-md-4 control-label">Léky</label>
+                            <label for="leky" class="col-md-4 control-label">Léky <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <select class="selectpicker" name="leky[]" multiple  id="" title="Vyberťe léky">
 

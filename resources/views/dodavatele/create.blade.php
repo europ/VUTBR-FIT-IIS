@@ -11,7 +11,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('nazev') ? ' has-error' : '' }}">
-                            <label for="nazev" class="col-md-4 control-label">Název dodavatele</label>
+                            <label for="nazev" class="col-md-4 control-label">Název dodavatele <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="nazev" type="text" class="form-control" name="nazev" value="{{ old('nazev') }}" required autofocus>
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('datum_dodani') ? ' has-error' : '' }}" id="jednorazovy-block">
-                            <label for="datum_dodani" class="col-md-4 control-label">Datum jednorázového dodání</label>
+                            <label for="datum_dodani" class="col-md-4 control-label">Datum jednorázového dodání <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <div id="date-2" class="input-group date">
@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('platnost_smlouvy_do') ? ' has-error' : '' }}" id="od-do-block">
-                            <label for="platnost_smlouvy_od" class="col-md-4 control-label">Platnost smlouvy od - do</label>
+                            <label for="platnost_smlouvy_od" class="col-md-4 control-label">Platnost smlouvy od - do <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <div class="row">

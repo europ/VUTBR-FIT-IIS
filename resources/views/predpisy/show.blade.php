@@ -37,11 +37,6 @@
                         <li class="list-group-item text-center"><b>{{$lek->nazev}}</b></li>
                         @endforeach
                       </ul>
-                      {{-- <span class="card-pf-utilization-card-details-count">256</span>
-                      <span class="card-pf-utilization-card-details-description">
-                        <span class="card-pf-utilization-card-details-line-1">Available</span>
-                        <span class="card-pf-utilization-card-details-line-2">of 432 GB</span>
-                      </span> --}}
                     </span>
                     <div id="chart-pf-donut-7"></div>
                     <div class="chart-pf-sparkline" id="chart-pf-sparkline-7"></div>

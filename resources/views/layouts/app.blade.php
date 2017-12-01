@@ -31,12 +31,6 @@
                 <img class="navbar-brand-icon" src="/img/logo-alt.svg" alt=""/>
                 <img class="navbar-brand-name" src="" alt="{{config('app.name')}}" />
             </a>
-        <!--
-            <a href="/" class="navbar-brand">
-                <img class="navbar-brand-icon" src="/img/logo-alt.svg" alt=""/>
-                <img class="navbar-brand-name" src="/img/brand-alt.svg" alt="PatternFly Enterprise Application" />
-            </a>
-        -->
         </div>
         <nav class="collapse navbar-collapse">
             {{--<ul class="nav navbar-nav">
@@ -45,35 +39,6 @@
                 </li>
             </ul>--}}
             <ul class="nav navbar-nav navbar-right navbar-iconic">
-            <!--
-                <li>
-                    <a href="#">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </li>
-            -->
-            <!--
-                <li class="dropdown">
-                    <a class="dropdown-toggle nav-item-iconic" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <span title="Notifications" class="fa pficon-flag"></span>
-                        <span class="badge">2</span>
-                    </a>
-                    <div class="dropdown-menu infotip bottom-right">
-                        <div class="arrow"></div>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="i pficon pficon-info"></span> Modified Datasources ExampleDS
-                            </li>
-                            <li class="list-group-item">
-                                <span class="i pficon pficon-info"></span> Error: System Failure
-                            </li>
-                        </ul>
-                        <div class="footer">
-                            <a>Clear Messages</a>
-                        </div>
-                    </div>
-                </li>
-            -->
                 <li class="dropdown">
                     <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span title="Help" class="fa pficon-help"></span>
@@ -104,13 +69,6 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         @if (Auth::guest())
-                            <li>
-                                <a href="{{ route('register') }}">
-                                    <span class="fa fa-user-plus">
-                                        &nbsp;&nbsp;Register
-                                    </span>
-                                </a>
-                            </li>
                             <li>
                                 <a href="{{ route('login') }}">
                                     <span class="fa fa-sign-in">

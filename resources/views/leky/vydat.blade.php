@@ -13,7 +13,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('mnozstvi') ? ' has-error' : '' }}">
-                            <label for="mnozstvi" class="col-md-4 control-label">Vydávané množství</label>
+                            <label for="mnozstvi" class="col-md-4 control-label">Vydávané množství <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="mnozstvi" type="number" class="form-control" name="mnozstvi" value="{{ old('mnozstvi') }}" min="1" max="{{$max}}" required autofocus>

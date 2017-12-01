@@ -13,7 +13,7 @@
 
 
                         <div class="form-group{{ $errors->has('rodne_cislo') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Rodné číslo</label>
+                            <label for="name" class="col-md-4 control-label">Rodné číslo <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="rodne_cislo" type="text" class="form-control" name="rodne_cislo" value="{{ old('rodne_cislo') }}" required autofocus>
@@ -28,7 +28,7 @@
 
 
                         <div class="form-group">
-                            <label for="pojistovna" class="col-md-4 control-label">Pojišťovna</label>
+                            <label for="pojistovna" class="col-md-4 control-label">Pojišťovna <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <select class="selectpicker" name="pojistovna" id="">
                                     <option value="none">Žádná</option>
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="leky" class="col-md-4 control-label">Léky</label>
+                            <label for="leky" class="col-md-4 control-label">Léky <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <select class="selectpicker" name="leky[]" multiple  id="" title="Vyberťe léky">
 

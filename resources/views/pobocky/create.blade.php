@@ -13,7 +13,7 @@
                         {{-- <input name="_method" type="hidden" value="PUT"> --}}
 
                         <div class="form-group{{ $errors->has('nazev_pobocky') ? ' has-error' : '' }}">
-                            <label for="nazev_pobocky" class="col-md-4 control-label">Název pobočky</label>
+                            <label for="nazev_pobocky" class="col-md-4 control-label">Název pobočky <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="nazev_pobocky" type="text" class="form-control" name="nazev_pobocky" value="{{ old('nazev_pobocky') }}" required autofocus>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('adresa_ulice') ? ' has-error' : '' }}">
-                            <label for="adresa_ulice" class="col-md-4 control-label">Ulice</label>
+                            <label for="adresa_ulice" class="col-md-4 control-label">Ulice <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="adresa_ulice" type="text" class="form-control" name="adresa_ulice" value="{{ old('adresa_ulice') }}" required autofocus>
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('adresa_cislo') ? ' has-error' : '' }}">
-                            <label for="adresa_cislo" class="col-md-4 control-label">Číslo ulice</label>
+                            <label for="adresa_cislo" class="col-md-4 control-label">Číslo ulice <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="adresa_cislo" type="text" class="form-control" name="adresa_cislo" value="{{ old('adresa_cislo') }}" required autofocus>
@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('adresa_mesto') ? ' has-error' : '' }}">
-                            <label for="adresa_mesto" class="col-md-4 control-label">Město</label>
+                            <label for="adresa_mesto" class="col-md-4 control-label">Město <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="adresa_mesto" type="text" class="form-control" name="adresa_mesto" value="{{ old('adresa_mesto') }}" required autofocus>
@@ -75,7 +75,7 @@
 
 
                         <div class="form-group{{ $errors->has('adresa_psc') ? ' has-error' : '' }}">
-                            <label for="adresa_psc" class="col-md-4 control-label">PSČ</label>
+                            <label for="adresa_psc" class="col-md-4 control-label">PSČ <span class="text-danger">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="adresa_psc" type="text" class="form-control" name="adresa_psc" value="{{ old('adresa_psc') }}" required autofocus>
