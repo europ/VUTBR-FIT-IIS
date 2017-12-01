@@ -10,7 +10,7 @@ class RezervaceController extends Controller
 
     public function __construct()
     {
-        $this->middleware('admin')->except(['index', 'show']);
+        $this->middleware('admin')->except(['index', 'show', 'store', 'create', 'edit', 'update', ]);
         $this->middleware('auth');
     }
     /**
@@ -65,9 +65,9 @@ class RezervaceController extends Controller
             foreach($_POST['leky'] as $lek){
                 DB::table('rezervace_leky')->insert(['id_leku' => $lek, 'id_rezervace'=> $rezervace->id_rezervace]); 
             } 
-            $request->session()->flash('status-success', "Předpis <b>$rezervace->id_rezervace</b> byl úspěšně vytvoren.");
+            $request->session()->flash('status-success', "Rezervace č. <b>$rezervace->id_rezervace</b> na jméno <b>$rezervace->jmeno_zakaznika</b> byla úspěšně vytvořena.");
         } else {
-            $request->session()->flash('status-fail', "Předpis se nezdařilo vytvorit.");
+            $request->session()->flash('status-fail', "Rezervaci se nezdařilo vytvorit.");
         }
 
         return redirect()->route('rezervace.index'); 
