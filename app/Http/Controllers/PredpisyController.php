@@ -108,11 +108,10 @@ class PredpisyController extends Controller
         $poistovnatmp = \App\Predpis::find($id);
         
         $poistovna = $poistovnatmp->id_pojistovny;
-        //$lekypredpisu = DB::table('predpisy_leky')->select('predpisy_leky.id_leku')->where('id_predpisu', $id)->get();
+        
+        $lekypredpisu = DB::table('predpisy_leky')->where('id_predpisu', $id)->get();
 
-        //$lekypredpisu = $lekypredpisu->toArray();
-
-        return view('predpisy.edit')->with(['predpis' => $predpis, 'pojistovny' => $pojistovny, 'leky' => $leky,'pojist' => $poistovna /*, 'lekypredpisu' => $lekypredpisu*/]);
+        return view('predpisy.edit')->with(['predpis' => $predpis, 'pojistovny' => $pojistovny, 'leky' => $leky,'pojist' => $poistovna , 'lekypredpisu' => $lekypredpisu]);
     }
 
     /**

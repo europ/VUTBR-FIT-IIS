@@ -98,7 +98,10 @@ class RezervaceController extends Controller
         $rezervace = \App\Rezervace::find($id);
 
         $leky = \App\Liek::get();
-        return view('rezervace.edit')->with(['rezervace' => $rezervace, 'leky' => $leky]);
+
+        $lekyrezervace = DB::table('rezervace_leky')->where('id_rezervace', $id)->get();
+
+        return view('rezervace.edit')->with(['rezervace' => $rezervace, 'leky' => $leky, 'lekyrezervace' => $lekyrezervace]);
 
     }
 
