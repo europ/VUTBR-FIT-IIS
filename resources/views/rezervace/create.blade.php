@@ -50,7 +50,7 @@
                                 <button type="submit" class="btn btn-primary" >
                                     Vytvoriť rezervace
                                 </button>
-                                <a class="btn btn-default" href="{{ route('predpisy.index') }}">
+                                <a class="btn btn-default" href="{{ route('rezervace.index') }}">
                                     Zrušit
                                 </a>
                             </div>
