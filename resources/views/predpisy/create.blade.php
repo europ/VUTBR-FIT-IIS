@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <label for="leky" class="col-md-4 control-label">Léky</label>
                             <div class="col-md-6">
-                                <select class="selectpicker" name="leky[]" multiple  id="">
+                                <select class="selectpicker" name="leky[]" multiple  id="" title="Vyberťe léky">
 
                                     @foreach ($leky as $lek)
                                     <option value="{{ $lek->id_leku }}">{{$lek->nazev}}</option>

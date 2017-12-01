@@ -53,9 +53,9 @@
                                 <select class="selectpicker" name="leky[]" multiple  id="">
                                     @foreach ($leky as $lek)
                                     <option value="{{ $lek->id_leku }}" 
-
-                                    {{--(collect(old('leky'))->contains($lek->id_leku)) ? "selected" : ""--}}
-                                    {{-- (in_array($lek->id_leku,$lekypredpisu)) ? "selected" : "" --}}>
+                                        @foreach ($lekypredpisu as $lp)
+                                            {{$lek->id_leku == $lp->id_leku ? "selected":""}}
+                                        @endforeach>
                                     {{$lek->nazev}}</option>
                                     @endforeach
                                 </select>

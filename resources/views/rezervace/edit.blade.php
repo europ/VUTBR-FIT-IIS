@@ -31,12 +31,12 @@
                      <div class="form-group">
                             <label for="leky" class="col-md-4 control-label">Léky</label>
                             <div class="col-md-6">
-                                <select class="selectpicker" name="leky[]" multiple  id="">
+                                <select class="selectpicker" name="leky[]" multiple  id="" >
                                     @foreach ($leky as $lek)
                                     <option value="{{ $lek->id_leku }}" 
-
-                                    {{--(collect(old('leky'))->contains($lek->id_leku)) ? "selected" : ""--}}
-                                    {{-- (in_array($lek->id_leku,$lekypredpisu)) ? "selected" : "" --}}>
+                                        @foreach ($lekyrezervace as $lr)
+                                            {{$lek->id_leku == $lr->id_leku ? "selected":""}}
+                                        @endforeach>
                                     {{$lek->nazev}}</option>
                                     @endforeach
                                 </select>

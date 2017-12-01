@@ -59,6 +59,10 @@ class LekyController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $lek = new \App\Liek;
+
+
         $rules = [
             'nazev' => [
                 'required',
@@ -69,8 +73,7 @@ class LekyController extends Controller
         ];
 
         $this->validate($request, $rules);
-        
-        $lek = new \App\Liek;
+
 
         $lek->nazev = $request->input('nazev');
         $lek->cena = $request->input('cena');
