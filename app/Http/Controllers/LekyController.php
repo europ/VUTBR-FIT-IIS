@@ -69,7 +69,7 @@ class LekyController extends Controller
                 'max:255',
                 Rule::unique('leky', 'nazev')->ignore($lek->id_leku, 'id_leku')
             ],
-            'cena' => 'required|numeric'
+            'cena' => 'required|numeric|min:0'
         ];
 
         $this->validate($request, $rules);
@@ -126,7 +126,7 @@ class LekyController extends Controller
                 'max:255',
                 Rule::unique('leky', 'nazev')->ignore($lek->id_leku, 'id_leku')
             ],
-            'cena' => 'required|numeric'
+            'cena' => 'required|numeric|min:0'
         ];
 
         $this->validate($request, $rules);
