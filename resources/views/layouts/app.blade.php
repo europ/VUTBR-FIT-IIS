@@ -120,11 +120,10 @@
                             </li>
                         @else
                             <li>
-                                <a href="#">
-                                    <span class="fa fa-cog">
-                                        &nbsp;&nbsp;{{ Auth::user()->name }}
-                                    </span>
-                                </a>
+                                &nbsp;&nbsp;&nbsp;
+                                <span class="fa fa-user">
+                                    &nbsp;&nbsp;{{ Auth::user()->name }}
+                                </span>
                             </li>
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
