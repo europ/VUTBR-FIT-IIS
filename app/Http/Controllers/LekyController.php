@@ -10,7 +10,7 @@ class LekyController extends Controller
 
     public function __construct()
     {
-        $this->middleware('admin')->except(['index', 'show','lekyNaPobocce','lekyNaPobocceUser']);
+        $this->middleware('admin')->except(['index', 'show','lekyNaPobocce','lekyNaPobocceUser', 'vydat_form', 'vydat']);
         $this->middleware('auth');
     }
     /**
@@ -138,6 +138,57 @@ class LekyController extends Controller
         }
 
         return redirect()->route('leky'); 
+    }
+
+    public function vydat_form(Request $request, $id_leku) {
+
+        $userPobockaId = \Auth::user()->id_pobocky;
+
+        $lek = \App\Pobocka::find($userPobockaId)->leky()->where('leky_na_pobockach.id_leku', $id_leku)->first();
+        $mnozstvi = $lek->pivot->mnozstvi;
+
+        return view('leky.vydat')->with(['lek' => $lek, 'max' => $mnozstvi]);
+
+
+        // $lek->pobocky()->updateExistingPivot($request->input('pobocka'), ['id_leku' => $id_leku, 'mnozstvi' => $mnozstvi]);
+
+
+
+        if ($userPobockaId != NULL) {
+            // $lek = \App\Liek::find($id_leku)->pobocky()->where('id_pobocky', $userPobockaId)->first();
+            $pobocka = \App\Pobocka::find($userPobockaId)->leky()->where('leky_na_pobockach.id_leku', $id_leku)->first();
+            return $pobocka->pivot->mnozstvi;
+            return redirect()->route('leky')->with(['lek' => $lek, 'mnozstvi' => $lek->mnozstvi]);
+            $lek = \App\Pobocka::find($userPobockaId)->leky()->where('leky_na_pobockach.id_leku', $id_leku)->first();
+        } else {
+            $request->session()->flash('status-fail', "Léky může vydávat pouze lekárník.");
+            return redirect()->route('leky');
+        }
+
+        $leky = \App\Pobocka::find($userPobockaId)->leky;
+        $pobocka = \App\Pobocka::find($userPobockaId);
+
+        // if ($) {
+        //     # code...
+        // }
+        // return \App\Liek::find($id_leku)->pobocky;
+    }
+
+    public function vydat(Request $request, $id_leku) {
+        $userPobockaId = \Auth::user()->id_pobocky;
+        $lek = \App\Pobocka::find($userPobockaId)->leky()->where('leky_na_pobockach.id_leku', $id_leku)->first();
+
+        $nove_mnozstvi = $lek->pivot->mnozstvi - $request->input('mnozstvi');
+
+        \App\Liek::find($id_leku)->pobocky()->updateExistingPivot($userPobockaId, ['id_leku' => $lek->id_leku, 'mnozstvi' => $nove_mnozstvi]);
+
+        // $lek->pobocky()->attach($request->input('pobocka'), ['id_leku' => $id_leku, 'mnozstvi' => $mnozstvi]);
+        \App\Liek::find($id_leku)->prodane()->attach($id_leku, ['mnozstvi' => $request->input('mnozstvi'), 'datum' => date("Y-m-d"), 'id_pobocky' => $userPobockaId]);
+
+        $request->session()->flash('status-success', "Lék byl označen jako vydán v počtě ".$request->input('mnozstvi'));
+
+        return redirect()->route('leky-na-pobocce');
+
     }
 
 

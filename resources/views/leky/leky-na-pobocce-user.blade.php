@@ -8,18 +8,14 @@
 				Léky na pobočce <strong>{{$pobocka->nazev_pobocky}}</strong>
 			</h1>
 		</div>
-		<div class="col-md-3 text-right">
+		{{-- <div class="col-md-3 text-right">
 			<a href="{{route('register')}}" class="btn btn-primary" style="margin-top: 20px;">
 				<span class="pficon-add-circle-o"></span> Vydat lék
 			</a>
-		</div>
+		</div> --}}
 	</div>
-	@if (Session::has('status'))
-	<div class="alert alert-success" role="alert">
-		<span class="pficon pficon-error-circle-o"></span>
-		{{Session::get('status')}}
-	</div>
-	@endif
+	
+	@include('alerts.status')
 
 	<!-- Table HTML -->
 	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -27,14 +23,18 @@
 			<tr>
 				<th>ID</th>
 				<th>Název léku</th>
+				<th>Množství</th>
 				<th>Cena</th>
+				<th>Akce</th>
 			</tr>
 		</thead>
 		<tfoot>
 			<tr>
 				<th>ID</th>
 				<th>Název léku</th>
+				<th>Množství</th>
 				<th>Cena</th>
+				<th>Akce</th>
 			</tr>
 		</tfoot>
 		<tbody>
@@ -42,7 +42,15 @@
 			<tr>
 				<td>{{ $lek->id_leku }}</td>
 				<td>{{ $lek->nazev }}</td>
+				<td>{{ $lek->pivot->mnozstvi }}</td>
 				<td>{{ $lek->cena }}</td>
+				<td class="text-center">
+					<a href="{{ route('vydat-lek-form', $lek->id_leku) }}" class="btn btn-primary">
+						Vydat lék
+						<span class="fa fa-arrow-right"></span>
+						<span class="fa fa-user"></span>
+					</a>
+				</td>
 			</tr>
 			@endforeach
 		</tbody>
@@ -66,6 +74,8 @@
    $(document).ready( function() {
    	$('#example').dataTable( {
    		"aoColumns": [ 
+   		null,
+   		null,
    		null,
    		null,
    		null
