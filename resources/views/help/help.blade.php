@@ -3,43 +3,66 @@
 @section('content')
 
 
-    <div class="col-md-12">
-        <div class="blank-slate-pf">
-            <h1>
-                HELP
-            </h1>
-        </div>
-    </div>
+<div class="blank-slate-pf">
+    <div class="panel-body">
 
-<!--
-    <div class="col-md-12">
-        <hr/>
-        <div class="blank-slate-pf " id="">
-            <div class="blank-slate-pf-icon">
-                <span class="pficon pficon pficon-add-circle-o"></span>
-            </div>
-            <h1>
-                Empty State Title
-            </h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p>
-                Learn more about this <a href="#">on the documentation</a>.
-            </p>
-            <div class="blank-slate-pf-main-action">
-                <button class="btn btn-primary btn-lg"> Main Action </button>
-            </div>
-            <div class="blank-slate-pf-secondary-action">
-                <button class="btn btn-default"> Secondary Action </button> <button class="btn btn-default"> Secondary Action </button> <button class="btn btn-default"> Secondary Action </button>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    <strong>HELP</strong>
+                </h1>
+                <p>
+                    <br>
+                    Informačný systém rozdeľuje osoby ktoré majú povolený vstup do systému do dvoch kategórií:
+                    <br>
+                    <br>
+                <p>
             </div>
         </div>
+
+        <div class="row">
+
+            <div class="inline-block col-md-6">
+
+                <h4>
+                    <strong>Správce</strong> umí:
+                </h4>
+
+                <p>
+                    <li>přidat, upravit, smazat užívatele</li>
+                    <li>přidat, upravit, smazat, naskladnit lék</li>
+                    <li>přidat, upravit, smazat, zobrazit pobočky/pobočku</li>
+                    <li>přidat, upravit, smazat, zobrazit dodavatelov/dodavatele</li>
+                    <li>přidat, upravit, smazat, zobrazit předpisy/předpis</li>
+                    <li>přidat, upravit, smazat, zobrazit rezervace/rezervaci</li>
+                    <li>přidat, upravit, smazat pojišťovnu</li>
+
+                </p>
+
+            </div>
+
+            <div class="inline-block col-md-6">
+
+                <h4>
+                    <strong>Užívatel</strong> umí:
+                </h4>
+
+                <p>
+                    <li>vydat lék</li>
+                    <li>zobrazit pobočky/pobočku</li>
+                    <li>zobrazit dodavatelov</li>
+                    <li>přidat, upravit, smazat, zobrazit předpisy/předpis</li>
+                    <li>přidat, upravit, smazat, zobrazit rezervace/rezervaci</li>
+                    <li>zobrazit pojišťovny</li>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
     </div>
--->
-
-
-@endsection
-
-@section('scripts')
+</div>
 
 @endsection
