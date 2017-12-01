@@ -257,7 +257,8 @@ class LekyController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $lek = \App\Liek::find($id);
+
+
 
         if (\App\Liek::destroy($id)) {
             $request->session()->flash('status-success', "Lék <b>$lek->nazev</b> byl vymazán.");

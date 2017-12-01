@@ -43,7 +43,7 @@
 				<td>{{ $lek->id_leku }}</td>
 				<td>{{ $lek->nazev }}</td>
 				<td>{{ $lek->pivot->mnozstvi }}</td>
-				<td>{{ $lek->cena }}</td>
+				<td>{{ $lek->cena }} Kč</td>
 				<td class="text-center">
 					<a href="{{ route('vydat-lek-form', $lek->id_leku) }}" class="btn btn-primary">
 						Vydat lék

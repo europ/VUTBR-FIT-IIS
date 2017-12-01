@@ -50,7 +50,7 @@
 			<tr>
 				<td>{{ $lek->id_leku }}</td>
 				<td>{{ $lek->nazev }}</td>
-				<td>{{ $lek->cena }}</td>
+				<td>{{ $lek->cena }} Kč</td>
 				@if (\Auth::user()->isAdmin())
 				<td class="text-center">
 					<a href="{{ route('leky.edit', $lek->id_leku) }}" class="btn btn-primary">

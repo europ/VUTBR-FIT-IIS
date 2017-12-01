@@ -46,7 +46,7 @@
 			<tr>
 				<td>{{ $lek->id_leku }}</td>
 				<td>{{ $lek->nazev }}</td>
-				<td>{{ $lek->cena }}</td>
+				<td>{{ $lek->cena }} Kč</td>
 				<td class="text-center">
 					<a href="{{-- {{route('user-edit', $user->id)}} --}}" class="btn btn-primary">
 						<span class="pficon-edit"></span>					

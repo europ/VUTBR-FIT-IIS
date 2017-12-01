@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('cena') ? ' has-error' : '' }}">
-                            <label for="cena" class="col-md-4 control-label">Cena</label>
+                            <label for="cena" class="col-md-4 control-label">Cena (Kč)</label>
 
                             <div class="col-md-6">
                                 <input id="cena" type="text" class="form-control" name="cena" value="{{ old('cena', $lek->cena) }}" required autofocus>
