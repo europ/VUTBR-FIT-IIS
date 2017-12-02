@@ -51,7 +51,10 @@ class PredpisyController extends Controller
         //
         $predpis = new \App\Predpis;
         $rules = [
-            'rodne_cislo' => 'required|max:11',
+            'rodne_cislo' => array(
+                                'required',
+                                'regex:/^[0-9]{10,11}$/'
+                            ),
             'pojistovna' => 'required|not_in:none',
             'leky' => 'required'
         ];
@@ -126,7 +129,10 @@ class PredpisyController extends Controller
         
         $predpis = \App\Predpis::find($id);
         $rules = [
-            'rodne_cislo' => 'required|max:11',
+            'rodne_cislo' => array(
+                    'required',
+                    'regex:/^[0-9]{10,11}$/'
+                ),
             'pojistovna' => 'required|not_in:none',
             'leky' => 'required'
         ];
