@@ -54,7 +54,7 @@ class DodavateliaController extends Controller
         
         $rules2 = [
             'nazev' => 'required|max:255',
-            'platnost_smlouvy_od' => '|required|date_format:"Y-m-d"',
+            'platnost_smlouvy_od' => 'before:platnost_smlouvy_do|required|date_format:"Y-m-d"',
             'platnost_smlouvy_do' => 'required|date_format:"Y-m-d"'
             // TODO
         ];
