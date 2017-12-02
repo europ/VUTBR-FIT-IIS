@@ -8,6 +8,24 @@ class Dodavatel extends Model {
 	protected $table = "dodavatele";
 	protected $primaryKey = "id_dodavatele";
 
+    public static function boot()
+    {
+        parent::boot();
+
+        Dodavatel::deleting(function($dodavatel)
+        {
+            $id_dodavatele = $dodavatel->id_dodavatele;
+
+            foreach ($dodavatel->leky as $dodavanyLek) {
+                $dodavanyLek->pivot->delete();
+            }
+
+            if (count(\App\Dodavatel::find($id_dodavatele)->pobocky) > 0) {
+                return false;
+            }
+        });
+    }
+
     /**
      * The attributes that are mass assignable.
      *

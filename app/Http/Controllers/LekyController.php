@@ -59,7 +59,7 @@ class LekyController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $lek = new \App\Liek;
 
 
@@ -258,7 +258,17 @@ class LekyController extends Controller
     public function destroy(Request $request, $id)
     {
 
+        $lek = \App\Liek::find($id);
 
+        if (count($lek->rezervace)) {
+            $request->session()->flash('status-fail', "Lék <b>$lek->nazev</b> nemůže být smazán, protože jsou na něj vytvořeny rezervace.");
+            return redirect()->route('leky');
+        }
+
+        if (count($lek->predpisy)) {
+            $request->session()->flash('status-fail', "Lék <b>$lek->nazev</b> nemůže být smazán, protože je navázán na některý předpis.");
+            return redirect()->route('leky');
+        }
 
         if (\App\Liek::destroy($id)) {
             $request->session()->flash('status-success', "Lék <b>$lek->nazev</b> byl vymazán.");

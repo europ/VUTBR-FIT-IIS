@@ -23,27 +23,43 @@ class Liek extends Model {
 			if (count(\App\Liek::find($id_leku)->pobocky) > 0) {
 				return false;
 			}
+
+			foreach ($liek->prodane as $key => $prodanyLek) {
+				$prodanyLek->pivot->delete();
+			}
+
+			if (count(\App\Liek::find($id_leku)->prodane) > 0) {
+				return false;
+			}
+
+			foreach ($liek->dodavatele as $key => $dodavka) {
+				$dodavka->pivot->delete();
+			}
+
+			if (count(\App\Liek::find($id_leku)->dodavatele) > 0) {
+				return false;
+			}			
 		});
 	}
 
-    public function pobocky() {
-    	return $this->belongsToMany('App\Pobocka', 'leky_na_pobockach', 'id_leku', 'id_pobocky')->withPivot('mnozstvi');
-    }
+	public function pobocky() {
+		return $this->belongsToMany('App\Pobocka', 'leky_na_pobockach', 'id_leku', 'id_pobocky')->withPivot('mnozstvi');
+	}
 
-    public function dodavatele() {
-    	return $this->belongsToMany('App\Dodavatel', 'ceny_dodavatelu', 'id_leku', 'id_dodavatele')->withPivot('cena');
-    }
+	public function dodavatele() {
+		return $this->belongsToMany('App\Dodavatel', 'ceny_dodavatelu', 'id_leku', 'id_dodavatele')->withPivot('cena');
+	}
 
-    public function rezervace() {
-    	return $this->belongsToMany('App\Rezervace', 'rezervace_leky', 'id_leku', 'id_rezervace');
-    }
+	public function rezervace() {
+		return $this->belongsToMany('App\Rezervace', 'rezervace_leky', 'id_leku', 'id_rezervace');
+	}
 
-    public function predpisy() {
-    	return $this->belongsToMany('App\Predpis', 'predpisy_leky', 'id_leku', 'id_predpisu');
-    }
+	public function predpisy() {
+		return $this->belongsToMany('App\Predpis', 'predpisy_leky', 'id_leku', 'id_predpisu');
+	}
 
-    public function prodane() {
-    	return $this->belongsToMany('App\Pobocka', 'prodane_leky', 'id_leku', 'id_pobocky')->withPivot(['datum', 'mnozstvi']);
-    }
+	public function prodane() {
+		return $this->belongsToMany('App\Pobocka', 'prodane_leky', 'id_leku', 'id_pobocky')->withPivot(['datum', 'mnozstvi']);
+	}
 
 }
