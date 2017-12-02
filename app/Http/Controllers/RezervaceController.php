@@ -10,7 +10,7 @@ class RezervaceController extends Controller
 
     public function __construct()
     {
-        $this->middleware('admin')->except(['index', 'show', 'store', 'create', 'edit', 'update', ]);
+        $this->middleware('admin')->except(['index', 'show', 'store', 'create', 'edit', 'update', 'confirmDelete', 'destroy']);
         $this->middleware('auth');
     }
     /**
