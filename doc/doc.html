@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Projekt IIS</title>
+	<style type="text/css">
+	table { border-collapse: collapse; }
+	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+	dt { font-weight: bold; margin-top: 0.5em; }
+</style>
+</head>
+<body>
+	
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+	podle použitého editoru -->
+
+	<h1>Lekáreň</h1> <!-- Nahradte názvem svého zadání -->
+
+	<dl>
+		<dt>Autori</dt>
+		<dd>Adrián Tóth <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+			<a href="mailto:xtotha01@stud.fit.vutbr.cz">xtotha01@stud.fit.vutbr.cz</a> -
+			Správa predpisov, rezervácií a poisťovní. Hľadanie chýb v informačnom systéme a ich opravovanie.
+		</dd>
+		<dd>Peter Šuhaj <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+			<a href="mailto:xsuhaj02@stud.fit.vutbr.cz">xsuhaj02@stud.fit.vutbr.cz</a> - 
+			Definícia bázových tabuliek pomocou migrations. Správa predpisov, rezervácií a poisťovní. Inštalácia informačného systému na server a testovanie. Kúpa vlastnej domény pre informačný systém.
+		</dd>
+		<dd>Marek Schauer <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+			<a href="mailto:xschau00@stud.fit.vutbr.cz">xschau00@stud.fit.vutbr.cz</a> - 
+			Prihlasovanie a správa užívateľov, liekov, pobočiek a dodávateľov. Definícia modelov.
+		</dd>
+		<dt>URL aplikácie</dt>
+		<dd><a href="http://iis-projekt.party">http://iis-projekt.party</a></dd>
+	</dl>
+
+	<h2>Užívatelia systému pre testovanie</h2>
+	<table>
+		<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+		<tr><td>admin</td><td>admin123</td><td>Administrátor</td></tr>
+		<tr><td>lekarnik</td><td>lekarnik123</td><td>Lekárník</td></tr>
+	</table>
+
+	<h2>Implementace</h2>
+	<p>Logika nami vytvoreného informačného systému lekárne je vytvorená v jazyku PHP za použitia frameworku Laravel verzie 5.4.17. Framework Laravel využíva architektúru MVC (Model, View, Controller). Takmer každá časť našej aplikácie využíva Model pre získanie dát z databázy, View pre definíciu vizuálu danej stránky a Controller pre spracovanie dát z Modelu a ich následné zobrazenie pomocou View.</p>
+	<p>Nasledujúci zoznam uvádza príslušné Modely, definície vizuálov daných stránok a Controllery s príslušnými metódami spracovávajúcimi dané požiadavky.</p>
+	<ul>
+		<li><h3>Lieky</h3>
+		<p>Lieky môžu byť vytvárané, editované, mazané a naskladňované len administrátorom. Zamestnanec lekárne, ktorý nie je administrátor môže lieky len vydávať (takýto zamestnanec reprezentuje lekárnika).</p>
+		</li>
+		<ul>
+			<li>Model: app/Leky.php</li>
+			<li>Controller: app/Http/Controllers/LekyController.php</li>
+		</ul>
+		<li><h3>Užívatelia</h3>
+		<p>Užívatelia môžu byť zobrazení, editovaní a pridávaní výhradne administrátorom.</p>
+		</li>
+		<ul>
+			<li>Model: app/User.php</li>
+			<li>Controller: app/Http/Controllers/UsersController.php</li>
+		</ul>
+		<li><h3>Pobočky</h3>
+		<p>Pobočky môžu byť zobrazené, vytvárané, mazané a editované výhradne administrátorom. Lekárnik má možnosť pozrieť sa, aké lieky a akí zamestnanci sú spojení s danou pobočkou.</p>
+		</li>
+		<ul>
+			<li>Model: app/Pobocka.php</li>
+			<li>Controller: app/Http/Controllers/PobockyController.php</li>
+		</ul>
+		<li><h3>Dodávatelia</h3>
+		<p>Dodávatelia môžu byť zobrazení, editovaní a pridávaní výhradne administrátorom. Lekárnik má možnosť pozrieť sa na lieky dodávané (prípadne jednorázovo dodané) daným dodávateľom.</p>
+		</li>
+		<ul>
+			<li>Model: app/Dodavatel.php</li>
+			<li>Controller: app/Http/Controllers/DodavateliaController.php</li>
+		</ul>
+		<li><h3>Predpisy</h3>
+		<p>Predpisy môžu byť zobrazované, editované, pridávané a mazané administrátorom aj lekárnikom.</p>
+		</li>
+		<ul>
+			<li>Model: app/Predpis.php</li>
+			<li>Controller: app/Http/Controllers/PredpisyController.php</li>
+		</ul>
+		<li><h3>Rezervácie</h3>
+		<p>Rezervácie môžu byť zobrazované, editované, pridávané a mazané administrátorom aj lekárnikom.</p>
+		</li>
+		<ul>
+			<li>Model: app/Rezervace.php</li>
+			<li>Controller: app/Http/Controllers/RezervaceController.php</li>
+		</ul>
+		<li><h3>Poisťovne</h3>
+			<p>Poisťovne môžu byť editované, pridávané a mazané výhradne administrátorom. Lekárnik si môže zobraziť zoznam poisťovní.</li>
+		<ul>
+			<li>Model: app/Poistovna.php</li>
+			<li>Controller: app/Http/Controllers/PoistovnyController.php</li>
+		</ul>
+	</ul>
+
+	<h2>Inštalácia</h2>
+	<ul>
+		<li>Postup inštalácie</li>
+		<ol>
+			<li>Všetky súbory našej aplikácie je potrebné skopírovať do koreňa webového servera, prípadne na želané miesto</li>
+			<li>Spustiť príkaz "composer autoload"</li>
+		</ol>
+		<li>Softwarové požiadavky</li>
+		<ol>
+			<li>PHP verzie aspoň 5.6.4</li>
+		</ol>
+		<li>Databáza
+			<p>Náš informačný systém pracuje s MySQL databázou. Definícia databázových tabuliek je zabezpečená pomocou migrations, ktoré sú súčasťou laravelu. Vytvorenie databázových tabuliek je možné vykonať pomocou príkazu "php artisan migrate", ktorý v databáze definuje všetky potrebné tabuľky a integritné obmedzenia.</p>
+			<p>Databázu je možné naplniť testovacími dátami. Pre definíciu testovacích dát sme využili nástroj zvaný seeds, ktorý je taktiež súčasťou frameworku Laravel. Naplnenie databázy existujúcimi testovacími dátami je možné vykonať pomocou príkazu "php artisan db:seed".</p>
+		</li>
+	</ul>
+
+	<h2>Známe problémy</h2>
+	<p>V čase odovzdávania tohto projektu nám nie sú známe žiadne problémy, ktoré by obmedzovali prácu s nami vyvynutým informačným systémom.</p>
+
+</body>
+</html>

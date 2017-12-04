@@ -23,6 +23,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $pobocky = \App\Pobocka::get();
+        $prodanoCount = 0;
+        foreach ($pobocky as $key => $pobocka) {
+            foreach ($pobocka->prodaneLeky as $key => $prodej) {
+                $prodanoCount += $prodej->pivot->mnozstvi;
+                // return $prodejmnozstvi
+            }
+        }
+
+
+        return view('dashboard')->with([
+            'users_count' => count(\App\User::get()),
+            'pobocky_count' => count(\App\Pobocka::get()),
+            'prodane_leky_count' => $prodanoCount,
+            'dodavatele_count' => count(\App\Dodavatel::get())
+        ]);
+        // return view('home');
     }
 }
