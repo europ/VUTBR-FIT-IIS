@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Carbon\Carbon;
 
 class RezervaceController extends Controller
 {
@@ -123,8 +124,12 @@ class RezervaceController extends Controller
         $this->validate($request, $rules);
 
         $rezervace->jmeno_zakaznika = $request->input('jmeno_zakaznika');
+        $rezervace->updated_at = Carbon::now();
 
         $leky = $request->input('leky');
+
+
+
 
         //remove all entries from rezervace leky
         DB::table('rezervace_leky')->where('id_rezervace', $id)->delete(); 
