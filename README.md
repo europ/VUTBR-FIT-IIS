@@ -5,7 +5,9 @@
 
 ---
 
-[xsuhaj02-InformationSystem](http://176.116.112.97)
+[Hosting(official)](http://iis-projekt.party/) at [iis-projekt.party](http://iis-projekt.party/)
+
+[Hosting(xsuhaj02)](http://176.116.112.97/) at [176.116.112.97](http://176.116.112.97)
 
 
 [Patternfly stylesheet](https://www.patternfly.org/pattern-library/widgets/)
@@ -14,7 +16,7 @@
 
 
 ### TODO:
-* Implement assignment :x:
+* Implement assignment :white_check_mark:
 * Set up laravel framework :white_check_mark:
 * Set up repo :white_check_mark:
 * Set up [Gitter](https://gitter.im/) :negative_squared_cross_mark:
@@ -26,14 +28,14 @@
 		* drop :white_check_mark:
 * Choose frontend template :white_check_mark:
 * Implement authorization to information system (admin/pharmacist) :white_check_mark:
-* Implement types of views :x:
+* Implement types of views :white_check_mark:
 	* medicines :white_check_mark:
 	* employees :white_check_mark:
 	* distributors :white_check_mark:
 	* offices :white_check_mark:
-	* insurances :recycle: WIP (edit/remove/add)
-	* reservations :recycle: WIP (edit/remove/add)
-* Other :x:
+	* insurances :white_check_mark:
+	* reservations :white_check_mark:
+* Other :white_check_mark:
 
 
 ---
