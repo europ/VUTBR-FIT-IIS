@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
+use DB;
 class LekyController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('admin')->except(['index', 'show','lekyNaPobocce','lekyNaPobocceUser', 'vydat_form', 'vydat']);
+        $this->middleware('admin')->except(['index', 'show','lekyNaPobocce','lekyNaPobocceUser', 'vydat_form', 'vydat','naskladnit_form_user','naskladnit_user']);
         $this->middleware('auth');
     }
     /**
@@ -199,6 +199,10 @@ class LekyController extends Controller
         return view('leky.naskladnit')->with(['lek' => \App\Liek::find($id_leku), 'pobocky' => \App\Pobocka::get()]);
     }
 
+    public function naskladnit_form_user($id_leku,$id_pobocky){
+        return view('leky.naskladnit_user')->with(['lek' => \App\Liek::find($id_leku), 'pobocka' => \App\Pobocka::find($id_pobocky)]);
+    }
+
 
     public function naskladnit(Request $request, $id_leku) {
         $lek = \App\Liek::find($id_leku);
@@ -242,6 +246,47 @@ class LekyController extends Controller
 
         return redirect()->route('leky');
     }
+
+
+    public function naskladnit_user(Request $request, $id_leku, $id_pobocky) {
+        $lek = \App\Liek::find($id_leku);
+
+        $rules = [
+            'mnozstvi' => 'required|numeric',
+        ];
+
+        $this->validate($request, $rules);
+        
+        $pobocka = \App\Liek::find($id_pobocky);
+
+        $mnozstvi  = $request->input('mnozstvi');
+        
+
+        $err = false;
+
+        
+        $tmp = DB::table('leky_na_pobockach')->where([['id_pobocky', '=', $id_pobocky],['id_leku', '=', $id_leku],])->get()->first();
+
+        $mnozstvi += $tmp->mnozstvi;
+
+
+        if ($mnozstvi >= 0) {
+            DB::table('leky_na_pobockach')->where([['id_pobocky', '=', $id_pobocky],['id_leku', '=', $id_leku]])->delete();
+            DB::table('leky_na_pobockach')->insert(['id_pobocky' => $id_pobocky, 'id_leku'=> $id_leku, 'mnozstvi' => $mnozstvi]);
+        } else {
+            $err = "Pobočka by obsahovala záporný počet jednotek léku.";
+        }
+
+
+        if ($err) {
+            $request->session()->flash('status-fail', "Lék <b>$lek->nazev</b> nebyl naskladněn na pobočku <b>" . \App\Pobocka::find($id_pobocky)->nazev_pobocky . "</b>: ".$err);
+        } else {
+            $request->session()->flash('status-success', "Lék <b>$lek->nazev</b> byl naskladněn na pobočku <b>" . \App\Pobocka::find($id_pobocky)->nazev_pobocky . "</b> v počtě " . $request->input('mnozstvi') . ".");
+        }
+
+        return redirect()->route('leky-na-pobocce');
+    }
+
 
     public function confirmDelete($id)
     {

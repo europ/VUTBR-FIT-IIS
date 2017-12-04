@@ -50,6 +50,10 @@
 						<span class="fa fa-arrow-right"></span>
 						<span class="fa fa-user"></span>
 					</a>
+					<a href="{{ route('naskladnit-lek-user-form', ['id_leku' => $lek->id_leku,'id_pobocky' => $pobocka->id_pobocky]) }}" class="btn btn-primary">
+						<span class="fa fa-arrow-right"></span>
+						<span class="fa fa-hospital-o"></span>
+					</a>
 				</td>
 			</tr>
 			@endforeach

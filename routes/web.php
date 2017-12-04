@@ -44,6 +44,8 @@ Route::get('/leky', 'LekyController@index')->name('leky');
 Route::get('/leky/{id}', 'LekyController@show')->name('ukazlek');
 Route::get('/leky-na-pobocce-{id}', 'LekyController@lekyNaPobocce')->name('leky-na-pobocce');
 Route::get('/leky-na-pobocce', 'LekyController@lekyNaPobocceUser')->name('leky-na-pobocce');
+Route::get('/naskladnit-lek-{id_leku}-{id_pobocky}', 'LekyController@naskladnit_form_user')->name('naskladnit-lek-user-form');
+Route::post('/naskladnit-lek-{id_leku}-{id_pobocky}', 'LekyController@naskladnit_user')->name('naskladnit-lek-user');
 Route::get('/naskladnit-lek-{id_leku}', 'LekyController@naskladnit_form')->name('naskladnit-lek-form');
 Route::post('/naskladnit-lek-{id_leku}', 'LekyController@naskladnit')->name('naskladnit-lek');
 Route::get('/vydat-lek-{id_leku}', 'LekyController@vydat_form')->name('vydat-lek-form');
