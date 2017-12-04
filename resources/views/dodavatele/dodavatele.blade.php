@@ -29,9 +29,7 @@
                 <th>Datum dodání</th>
                 <th>Platnost smlouvy od</th>
                 <th>Platnost smlouvy do</th>
-                @if (\Auth::user()->isAdmin())
                 <th>Akce</th>
-                @endif
             </tr>
         </thead>
         <tfoot>
@@ -42,9 +40,7 @@
                 <th>Datum dodání</th>
                 <th>Platnost smlouvy od</th>
                 <th>Platnost smlouvy do</th>
-                @if (\Auth::user()->isAdmin())
                 <th>Akce</th>
-                @endif
             </tr>
         </tfoot>
         <tbody>
@@ -56,19 +52,21 @@
                 <td>{{ $dodavatel->datum_dodani }}</td>
                 <td>{{ $dodavatel->platnost_smlouvy_od }}</td>
                 <td>{{ $dodavatel->platnost_smlouvy_do }}</td>
-                @if (\Auth::user()->isAdmin())
+                
                 <td class="text-center">
+                    @if (\Auth::user()->isAdmin())
                     <a href="{{route('dodavatele.edit', $dodavatel->id_dodavatele)}}" class="btn btn-primary">
                         <span class="pficon-edit"></span>                   
                     </a>
                     <a href="{{route('dodavatele.confirmDelete', $dodavatel->id_dodavatele)}}" class="btn btn-primary">
                         <span class="pficon-delete"></span>
                     </a>
+                    @endif
                     <a href="{{route('dodavatele.show', $dodavatel->id_dodavatele)}}" class="btn btn-primary">
                         <span class="fa fa-eye"></span>
                     </a>
                 </td>
-                @endif
+                
             </tr>
             @endforeach
         </tbody>
@@ -87,34 +85,23 @@
             ] } );
        } );
 
-    var admin = "{{{ (Auth::user()->isAdmin()) ? Auth::user()->isAdmin() : null }}}";
 
    // Using aoColumns
-   $(document).ready( function() {
-    if(admin){
-        $('#example').dataTable( {
-        "aoColumns": [ 
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        { "bSortable": false }
-        ] } );
-    }
-    else {
-        $('#example').dataTable( {
-        "aoColumns": [ 
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-        ] } );
-    }
-    } );
+$(document).ready( function() {
+ 
+    $('#example').dataTable( {
+    "aoColumns": [ 
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    { "bSortable": false }
+    ] } );
+
+
+} );
 </script>
 
 @endsection
