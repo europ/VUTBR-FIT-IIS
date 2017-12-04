@@ -36,8 +36,8 @@
 	<h2>Užívatelia systému pre testovanie</h2>
 	<table>
 		<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
-		<tr><td>admin</td><td>admin123</td><td>Administrátor</td></tr>
-		<tr><td>lekarnik</td><td>lekarnik123</td><td>Lekárník</td></tr>
+		<tr><td>admin@admin.admin</td><td>adminadmin</td><td>Administrátor</td></tr>
+		<tr><td>user@user.user</td><td>useruser</td><td>Lekárník</td></tr>
 	</table>
 
 	<h2>Implementace</h2>
@@ -98,8 +98,10 @@
 	<ul>
 		<li>Postup inštalácie</li>
 		<ol>
-			<li>Všetky súbory našej aplikácie je potrebné skopírovať do koreňa webového servera, prípadne na želané miesto</li>
-			<li>Spustiť príkaz "composer autoload"</li>
+			<li>Všetky súbory našej aplikácie je potrebné skopírovať do koreňa webového servera, prípadne na želané miesto.</li>
+			<li>Spustiť príkaz "composer autoload".</li>
+			<li>V súboru .env nakonfigurovať názov databázy, užívateľské meno a heslo do databázy.</li>
+			<li>Zadanie príkazu php artisan key:generate.</li>
 		</ol>
 		<li>Softwarové požiadavky</li>
 		<ol>

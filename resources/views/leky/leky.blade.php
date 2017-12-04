@@ -60,6 +60,7 @@
 						<span class="pficon-delete"></span>
 					</a>
 					<a href="{{ route('naskladnit-lek-form', $lek->id_leku) }}" class="btn btn-primary">
+						Naskladnit lék
 						<span class="fa fa-arrow-right"></span>
 						<span class="fa fa-hospital-o"></span>
 					</a>
