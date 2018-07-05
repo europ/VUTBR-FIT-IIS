@@ -28,7 +28,7 @@ sudo mv composer.phar /usr/local/bin/composer
 cd /var/www/html
 
 sudo composer create-project laravel/laravel IIS --prefer-dist
-sudo chmod -R 777 ISS
+sudo chmod -R 777 IIS
 sudo vim /etc/apache2/sites-available/000-default.conf
 ```
 
@@ -37,9 +37,9 @@ sudo vim /etc/apache2/sites-available/000-default.conf
 DocumentRoot /var/www/html/IIS/public
 ```
 
-* Add to `/etc/apache2/sites-available/000-default.conf`:
+* Add to `/etc/apache2/sites-available/000-default.conf` under `DocumentRoot`:
 ```
-	<Directory /var/www/html/work/public>
+	<Directory /var/www/html/IIS/public>
 		AllowOverride All
 		Require all granted
 	</Directory>
